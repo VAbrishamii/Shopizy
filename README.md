@@ -1,1 +1,1 @@
-# Shopzy
+# Shopizy
