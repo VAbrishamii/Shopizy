@@ -8,7 +8,7 @@ const Footer = () => {
       <FooterLinks>
         <Link to="/">Home</Link>
         <Link to="/contact">Contact</Link>
-        <Link to="/cart">Cart</Link>
+       
       </FooterLinks>
     </FooterContainer>
   );
