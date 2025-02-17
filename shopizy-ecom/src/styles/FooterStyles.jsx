@@ -11,6 +11,9 @@ export const FooterContainer = styled.footer`
   bottom: 0;
   width: 100%;
   height: 50px;
+  z-index: 500;
+
+
 `;
 
 export const FooterText = styled.p`

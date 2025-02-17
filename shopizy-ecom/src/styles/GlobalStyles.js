@@ -3,6 +3,13 @@ import { createGlobalStyle } from "styled-components";
 export const GlobalStyles = createGlobalStyle`
 
 
+  html, body, #root {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+  }
   * {
     margin: 0;
     padding: 0;
@@ -15,6 +22,19 @@ export const GlobalStyles = createGlobalStyle`
     color: ${({ theme }) => theme.colors.textPrimary};
     transition: background-color 0.3s, color 0.3s;
   }
+  
+
+  .layout {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; 
+  }
+
+  .content {
+    flex: 1; 
+    padding-bottom: 120px;
+  }
+  
 
   h1, h2, h3, h4, h5, h6 {
     font-family: ${({ theme }) => theme.fonts.main};
@@ -30,9 +50,9 @@ export const GlobalStyles = createGlobalStyle`
     transition: background-color 0.3s;
   }
 
-  button:hover {
-    background-color: ${({ theme }) => theme.colors.secondary};
-  }
+  // button:hover {
+  //   background-color: ${({ theme }) => theme.colors.secondary};
+  // }
 `;
 
 export default GlobalStyles;

@@ -1,6 +1,12 @@
+// Desc: Homepage of the website
+import SearchBar from "../components/SearchBar";
+
 const HomePage = () => {
-    return <h1>Welcome to Shopizy</h1>;
-  };
-  
-  export default HomePage;
-  
+  return (
+    <>
+      <SearchBar />
+    </>
+  );
+};
+
+export default HomePage;
