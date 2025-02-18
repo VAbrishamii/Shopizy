@@ -73,29 +73,57 @@ export const ThemeToggle = styled.button`
     box-shadow: none; // Prevent background color from appearing
   }
 `;
+export const ToggleSwitch = styled.div.withConfig({
+  shouldForwardProp: (prop) => prop !== "isDark"})`
+
+  width: 40px;
+  height: 20px;
+  background-color: ${({ isDark, theme }) => 
+    isDark ? theme.colors.primary : "#ccc"};
+  border-radius: 20px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  padding: 2px;
+  transition: background-color 0.3s;
+`;
+
+
+export const ToggleSlider = styled.div.withConfig({shouldForwardProp: (prop) => prop !== "isDark"})`
+  height: 18px;
+  width: 18px;
+  background-color: ${({ theme }) => theme.colors.card};
+  border-radius: 50%;
+  position: absolute;
+  top: 1px;
+  left: ${({ isDark }) => (isDark ? "20px" : "2px")};
+ 
+  transition: left 0.3s;
+`;
 export const MobileNav = styled.div`
   position: fixed;
   bottom: 50px;
   left: 0;
   width: 100%;
   background-color: ${({ theme }) => theme.colors.background};
-  box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+  box-shadow: ${({ theme }) =>
+    theme.colors.background === "#121212"
+      ? "0 -4px 10px rgba(255, 255, 255, 0.1)"
+      : "0 -4px 6px rgba(0, 0, 0, 0.1)"}; 
   padding: 10px 0;
   display: flex;
   justify-content: space-around;
   align-items: center;
   height: 60px;
   z-index: 1001;
-  a {
-    font-size: 22px;
-    color: ${({ theme }) => theme.colors.textPrimary}; 
-    text-decoration: none;
-    transition: color 0.3s ease, transform 0.2s ease;
+ 
+
+  
 
     &:hover {
       color: ${({ theme }) => theme.colors.primary}; 
       transform: scale(1.1);
     }
-  }
+  
 
 `;

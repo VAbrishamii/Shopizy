@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Home, ShoppingCart, User, Headset, Moon, Sun } from "lucide-react";
+import { Home, ShoppingCart, User, Headset } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useTheme } from "styled-components";
 import useThemeStore from "../store/useThemeStore";
@@ -10,13 +10,15 @@ import {
   NavLinks,
   IconLink,
   ThemeToggle,
+  ToggleSwitch,
+  ToggleSlider,
   MobileNav,
 } from "../styles/HeaderStyles";
 import logo from "../assets/logo.jpg";
 
 const Header = () => {
-  const { toggleTheme } = useThemeStore();
-  const theme = useTheme();
+  const { theme, toggleTheme } = useThemeStore();
+  // const theme = useTheme();
 
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
   useEffect(() => {
@@ -38,11 +40,13 @@ const Header = () => {
         </Link>
         {/* Dark Mode Toggle */}
         <ThemeToggle onClick={toggleTheme} title="Toggle Theme">
-          {theme === "light" ? <Moon size={24} /> : <Sun size={24} />}
+          <ToggleSwitch isDark={theme === "dark"}>
+            <ToggleSlider isDark={theme === "dark"} />
+            </ToggleSwitch>
         </ThemeToggle>
       </TopHeader>
 
-      {/* ✅ Navbar changes based on screen size */}
+      {/* Navbar changes based on screen size */}
       {isMobile ? (
         <MobileNav>
           <Link to="/">

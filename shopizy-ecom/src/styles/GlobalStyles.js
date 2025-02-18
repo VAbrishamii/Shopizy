@@ -50,6 +50,13 @@ export const GlobalStyles = createGlobalStyle`
     transition: background-color 0.3s;
   }
 
+  a {
+    // font-size: 22px;
+    color: ${({ theme }) => theme.colors.textPrimary}; 
+    text-decoration: none;
+    transition: color 0.3s ease, transform 0.2s ease;
+    }
+
   // button:hover {
   //   background-color: ${({ theme }) => theme.colors.secondary};
   // }
