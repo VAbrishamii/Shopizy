@@ -1,5 +1,15 @@
 import styled from "styled-components";
 
+export const ProductListContainer = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;  
+  padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto; 
+`;
+
 export const CardContainer = styled.div`
   background-color: ${({ theme }) => theme.colors.card};
   border-radius: 8px;

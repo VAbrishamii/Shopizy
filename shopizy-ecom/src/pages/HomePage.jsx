@@ -2,6 +2,7 @@
 import SearchBar from "../components/SearchBar";
 import { useProducts } from "../hooks/useProducts";
 import ProductCard from "../components/ProductCard";
+import { ProductListContainer } from "../styles/CardStyles";
 
 
 const HomePage = () => {
@@ -11,11 +12,11 @@ const HomePage = () => {
   return (
     <>
       <SearchBar />
-      <div style={{ display: "flex", flexWrap: "wrap", gap: "20px" }}>
+     <ProductListContainer>
       {products.data.map((product) => (
         <ProductCard key={product.id} product={product} />
       ))}
-    </div>
+    </ProductListContainer>
       
     </>
   );
