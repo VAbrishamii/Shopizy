@@ -30,7 +30,7 @@ export const CardContainer = styled.div`
 
 export const ProductImage = styled.img`
   width: 100%;
-  height: 180px;
+  height: 240px;
   object-fit: cover;
 `;
 
