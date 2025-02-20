@@ -43,6 +43,9 @@ export const IconLink = styled(Link)`
   color: ${({ theme }) => theme.colors.textPrimary};
   text-decoration: none;
   transition: color 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
   .cart-icon {
     width: 28px;
@@ -71,6 +74,9 @@ export const CartBadge = styled.span`
   min-width: 20px;
   min-height: 20px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  z-index: 10;
+
+ 
 `;
 
 export const ThemeToggle = styled.button`
@@ -120,9 +126,9 @@ export const ToggleSlider = styled.div.withConfig({shouldForwardProp: (prop) => 
   position: absolute;
   top: 1px;
   left: ${({ isDark }) => (isDark ? "20px" : "2px")};
- 
   transition: left 0.3s;
 `;
+
 export const MobileNav = styled.div`
   position: fixed;
   bottom: 50px;
@@ -140,13 +146,10 @@ export const MobileNav = styled.div`
   height: 60px;
   z-index: 1001;
  
-
-  
-
-    &:hover {
-      color: ${({ theme }) => theme.colors.primary}; 
-      transform: scale(1.1);
-    }
+  &:hover {
+    color: ${({ theme }) => theme.colors.primary}; 
+    transform: scale(1.1);
+  }
   
 
 `;

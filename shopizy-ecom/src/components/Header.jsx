@@ -61,7 +61,7 @@ const Header = () => {
           </Link>
           <Link to="/cart">
             <ShoppingBagIcon className="cart-icon" width={28} height={28} />
-            {cart.length > 0 && <span>({cart.length})</span>}
+            {cart.length > 0 && <CartBadge>{cart.length}</CartBadge>}
           </Link>
           <Link to="/account">
             <User size={24} />

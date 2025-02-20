@@ -2,6 +2,8 @@ export const theme = (mode) => ({
     colors: {
       primary: "#6A0DAD",
       secondary: "#512D6D",
+      black: "#000000",
+      white: "#FFFFFF",
       background: mode === "dark" ? "#121212" : "#F5F5F5",
       card: mode === "dark" ? "#1E1E1E" : "#FFFFFF",
       textPrimary: mode === "dark" ? "#EDEDED" : "#222222",

@@ -35,10 +35,10 @@ position: absolute;
 top: 10px;
 right: 10px;
 cursor: pointer;
-color: ${({ theme }) => theme.colors.textPrimary};
+color: ${({ theme }) => theme.colors.black};
 transition: color 0.3s ease-in-out, transform 0.3s ease-in-out;
-width: 30px;
-height: 30px;
+width: 22px;
+height: 22px;
 z-index: 10;
 &:hover {
   color: ${({ theme }) => theme.colors.primary};
