@@ -38,16 +38,39 @@ export const NavLinks = styled.div`
 `;
 
 export const IconLink = styled(Link)`
+  position: relative;
   font-size: 22px;
   color: ${({ theme }) => theme.colors.textPrimary};
   text-decoration: none;
   transition: color 0.3s ease;
+
+  .cart-icon {
+    width: 28px;
+    height: 28px;
+  }
 
   &:hover {
     color: ${({ theme }) => theme.colors.primary};
     font-weight: bold;
     transform: scale(1.1);
   }
+`;
+export const CartBadge = styled.span`
+  position: absolute;
+  top: -1px;
+  right: -6px;
+  color: white;
+  background-color: ${({ theme }) => theme.colors.error};  
+  font-size: 12px;
+  font-weight: bold;
+  padding: 3px 3px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-width: 20px;
+  min-height: 20px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 `;
 
 export const ThemeToggle = styled.button`

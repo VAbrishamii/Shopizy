@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
-import { Home, ShoppingCart, User, Headset } from "lucide-react";
+import { Home, User, Headset } from "lucide-react";
+import {ShoppingBagIcon} from "@heroicons/react/24/outline";
 import { Link } from "react-router-dom";
-import { useTheme } from "styled-components";
 import useThemeStore from "../store/useThemeStore";
 import {
   HeaderContainer,
@@ -9,16 +9,20 @@ import {
   Logo,
   NavLinks,
   IconLink,
+  CartBadge,
   ThemeToggle,
   ToggleSwitch,
   ToggleSlider,
   MobileNav,
 } from "../styles/HeaderStyles";
 import logo from "../assets/logo.jpg";
+import useCartStore from "../store/useCartStore";
 
 const Header = () => {
   const { theme, toggleTheme } = useThemeStore();
-  // const theme = useTheme();
+  const {cart } = useCartStore();
+
+
 
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
   useEffect(() => {
@@ -56,7 +60,8 @@ const Header = () => {
             <Headset size={24} />
           </Link>
           <Link to="/cart">
-            <ShoppingCart size={24} />
+            <ShoppingBagIcon className="cart-icon" width={28} height={28} />
+            {cart.length > 0 && <span>({cart.length})</span>}
           </Link>
           <Link to="/account">
             <User size={24} />
@@ -71,7 +76,8 @@ const Header = () => {
             <Headset size={24} />
           </IconLink>
           <IconLink to="/cart">
-            <ShoppingCart size={24} />
+            <ShoppingBagIcon  width={28} height={28} />
+            {cart.length > 0 && <CartBadge>{cart.length}</CartBadge>}
           </IconLink>
           <IconLink to="/account">
             <User size={24} />
