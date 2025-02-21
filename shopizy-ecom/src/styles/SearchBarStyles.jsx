@@ -11,6 +11,9 @@ export const SearchContainer = styled.div`
   background-color: ${({ theme }) => theme.colors.card};
   border-radius: 8px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+ 
+ 
+ 
 `;
 
 export const SearchInput = styled.input`
@@ -21,6 +24,8 @@ export const SearchInput = styled.input`
   padding: 10px;
   font-size: 16px;
   color: ${({ theme }) => theme.colors.textPrimary};
+
+ 
 `;
 
 export const SearchIcon = styled(Search)`

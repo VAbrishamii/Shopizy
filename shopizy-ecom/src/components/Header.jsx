@@ -9,6 +9,7 @@ import {
   Logo,
   NavLinks,
   IconLink,
+  CartWrapper,
   CartBadge,
   ThemeToggle,
   ToggleSwitch,
@@ -17,24 +18,31 @@ import {
 } from "../styles/HeaderStyles";
 import logo from "../assets/logo.jpg";
 import useCartStore from "../store/useCartStore";
+import { useMediaQuery } from "react-responsive";
+
+
+
 
 const Header = () => {
+
   const { theme, toggleTheme } = useThemeStore();
   const {cart } = useCartStore();
+  const isMobile = useMediaQuery({ maxWidth: 768 });
+  const isTablet = useMediaQuery({ minWidth: 769, maxWidth: 1024 });
 
 
 
-  const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
-  useEffect(() => {
-    const handleResize = () => {
-      setIsMobile(window.innerWidth <= 768);
-    };
-    window.addEventListener("resize", handleResize);
+  // const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
+  // useEffect(() => {
+  //   const handleResize = () => {
+  //     setIsMobile(window.innerWidth <= 768);
+  //   };
+  //   window.addEventListener("resize", handleResize);
 
-    return () => {
-      window.removeEventListener("resize", handleResize);
-    };
-  }, []);
+  //   return () => {
+  //     window.removeEventListener("resize", handleResize);
+  //   };
+  // }, []);
 
   return (
     <HeaderContainer>
@@ -60,8 +68,10 @@ const Header = () => {
             <Headset size={24} />
           </Link>
           <Link to="/cart">
+         <CartWrapper>
             <ShoppingBagIcon className="cart-icon" width={28} height={28} />
-            {cart.length > 0 && <CartBadge>{cart.length}</CartBadge>}
+            {cart.length > 0 && <CartBadge isMobile={isMobile} isTablet={isTablet}>{cart.length}</CartBadge>}
+          </CartWrapper>
           </Link>
           <Link to="/account">
             <User size={24} />
@@ -76,8 +86,10 @@ const Header = () => {
             <Headset size={24} />
           </IconLink>
           <IconLink to="/cart">
+          <CartWrapper>
             <ShoppingBagIcon  width={28} height={28} />
-            {cart.length > 0 && <CartBadge>{cart.length}</CartBadge>}
+            {cart.length > 0 && <CartBadge isMobile={isMobile} isTablet={isTablet}>{cart.length}</CartBadge>}
+          </CartWrapper>
           </IconLink>
           <IconLink to="/account">
             <User size={24} />

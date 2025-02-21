@@ -13,8 +13,9 @@ export const ProductListContainer = styled.div`
 
 export const CardContainer = styled.div`
   background-color: ${({ theme }) => theme.colors.card};
+  // border: 1px solid ${({ theme }) => theme.colors.lightGrey};
   border-radius: 8px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: ${({ theme }) => theme.boxShadow};
   overflow: hidden;
   transition: transform 0.3s;
   width: 250px;

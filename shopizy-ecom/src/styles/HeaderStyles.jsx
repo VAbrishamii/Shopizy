@@ -33,6 +33,7 @@ export const Logo = styled.img`
 `;
 
 export const NavLinks = styled.div`
+
   display: flex;
   gap: ${({ theme }) => theme.spacing.medium};
 `;
@@ -58,10 +59,17 @@ export const IconLink = styled(Link)`
     transform: scale(1.1);
   }
 `;
-export const CartBadge = styled.span`
+export const CartWrapper = styled.div`
+  position: relative; 
+  display: inline-block;
+`;
+export const CartBadge = styled.span.withConfig({shouldForwardProp: (prop) => prop !== "isMobile" && prop !== "isTablet"})`
   position: absolute;
-  top: -1px;
-  right: -6px;
+  top: 6px;
+  right: 2px;
+  transform: translate(50%, -50%);
+  // top: ${({ isMobile = false, isTablet = false }) => (isMobile ? "10px" : isTablet ? "-1px" : "-1px")};
+  // right: ${({ isMobile = false, isTablet = false }) => (isMobile ? "267px" : isTablet ? "-6px" : "-6px")};
   color: white;
   background-color: ${({ theme }) => theme.colors.error};  
   font-size: 12px;
@@ -71,10 +79,13 @@ export const CartBadge = styled.span`
   display: flex;
   justify-content: center;
   align-items: center;
-  min-width: 20px;
-  min-height: 20px;
+  // min-width: 20px;
+  // min-height: 20px;
+  min-width: ${({ isMobile }) => (isMobile ? "20px" : "15px")};
+  min-height: ${({ isMobile }) => (isMobile ? "20px" : "15px")};
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
   z-index: 10;
+
 
  
 `;
