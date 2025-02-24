@@ -30,6 +30,8 @@ const Header = () => {
   const isMobile = useMediaQuery({ maxWidth: 768 });
   const isTablet = useMediaQuery({ minWidth: 769, maxWidth: 1024 });
 
+  const totalItems = cart.reduce((total, item) => total + item.quantity, 0);
+
 
 
   // const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
