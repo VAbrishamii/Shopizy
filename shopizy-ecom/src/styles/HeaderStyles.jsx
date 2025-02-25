@@ -79,10 +79,10 @@ export const CartBadge = styled.span.withConfig({shouldForwardProp: (prop) => pr
   display: flex;
   justify-content: center;
   align-items: center;
-  // min-width: 20px;
-  // min-height: 20px;
-  min-width: ${({ isMobile }) => (isMobile ? "20px" : "15px")};
-  min-height: ${({ isMobile }) => (isMobile ? "20px" : "15px")};
+  min-width: 20px;
+  min-height: 20px;
+  // min-width: ${({ isMobile }) => (isMobile ? "20px" : "20px")};
+  // min-height: ${({ isMobile }) => (isMobile ? "20px" : "20px")};
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
   z-index: 10;
 

@@ -31,10 +31,10 @@ const useCartStore = create((set) => ({
             return { cart: updatedCart };
         }
     ),
-    updateQuantity: (id, quantity) =>
+    updateQuantity: (id, change) =>
         set((state) => {
             const updatedCart = state.cart.map((item) =>
-                item.id === id ? { ...item, quantity } : item
+                item.id === id ? { ...item, quantity:Math.max(1, item.quantity + change) } : item
             );
             localStorage.setItem("cart", JSON.stringify(updatedCart));
             return { cart: updatedCart };
