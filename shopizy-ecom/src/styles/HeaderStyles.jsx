@@ -85,10 +85,203 @@ export const CartBadge = styled.span.withConfig({shouldForwardProp: (prop) => pr
   // min-height: ${({ isMobile }) => (isMobile ? "20px" : "20px")};
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
   z-index: 10;
-
-
  
 `;
+export const CartSummary = styled.div`
+  position: absolute;
+  top: 50px;
+  right: 0;
+  width: 250px;
+  background: ${({ theme }) => theme.colors.card};
+  border-radius: 8px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 15px;
+  z-index: 999;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+
+  ${CartWrapper}:hover & {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .cart-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    border-bottom: 1px solid ${({ theme }) => theme.colors.textSecondary};
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+  }
+
+  .cart-item img {
+    width: 40px;
+    height: 40px;
+    object-fit: cover;
+    border-radius: 5px;
+  }
+
+  .cart-details {
+    flex-grow: 1;
+    font-size: 14px;
+  }
+
+  .cart-actions {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
+
+  .cart-actions button {
+    background: ${({ theme }) => theme.colors.primary};
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 3px 7px;
+    cursor: pointer;
+    transition: background 0.3s;
+
+    &:hover {
+      background: ${({ theme }) => theme.colors.secondary};
+    }
+  }
+
+  a {
+    display: block;
+    text-align: center;
+    background: ${({ theme }) => theme.colors.success};
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background 0.3s;
+
+    &:hover {
+      background: ${({ theme }) => theme.colors.primary};
+    }
+  }
+`;
+export const CheckoutButton = styled(Link)`
+  display: block;
+  text-align: center;
+  padding: 10px;
+  background-color: ${({ theme }) => theme.colors.primary};
+  color: white;
+  border-radius: 5px;
+  margin-top: 10px;
+  text-decoration: none;
+  font-weight: bold;
+`;
+
+
+// export const CartDropdown = styled.div.withConfig({shouldForwardProp: (prop) => prop !== "isMobile"})`
+//   position: absolute;
+//   top: 60px;
+//   right: ${({ isMobile }) => (isMobile ? "-50px" : "0")};
+//   width: ${({ isMobile }) => (isMobile ? "100vw" : "300px")};
+//   background: ${({ theme }) => theme.colors.card};
+//   border: 1px solid #ddd;
+//   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+//   border-radius: 8px;
+//   padding: 10px;
+//   z-index: 1000;
+
+//   .total {
+//     text-align: right;
+//     font-weight: bold;
+//     margin-top: 10px;
+//   }
+// `;
+
+// export const CartItem = styled.div`
+//   display: flex;
+//   align-items: center;
+//   justify-content: space-between;
+//   padding: 8px 0;
+//   border-bottom: 1px solid #ddd;
+
+//   img {
+//     width: 50px;
+//     height: 50px;
+//     object-fit: cover;
+//     border-radius: 5px;
+//   }
+
+//   h3 {
+//     font-size: 14px;
+//     margin: 0;
+//     color: ${({ theme }) => theme.colors.textPrimary};
+//   }
+
+//   p {
+//     font-size: 12px;
+//     color: ${({ theme }) => theme.colors.textSecondary};
+//   }
+// `;
+
+// export const CartActions = styled.div`
+//   display: flex;
+//   flex-direction: column;
+//   align-items: center;
+//   gap: 5px;
+
+//   button {
+//     background: none;
+//     border: none;
+//     cursor: pointer;
+//     font-size: 14px;
+//     padding: 4px;
+//     border-radius: 5px;
+//     transition: background 0.2s ease;
+
+//     &:hover {
+//       background: rgba(0, 0, 0, 0.1);
+//     }
+//   }
+// `;
+// export const CheckoutButton = styled.button`
+//   width: 100%;
+//   padding: 10px;
+//   background: ${({ theme }) => theme.colors.primary};
+//   color: white;
+//   font-size: 14px;
+//   font-weight: bold;
+//   border: none;
+//   border-radius: 5px;
+//   cursor: pointer;
+//   transition: background 0.3s ease;
+
+//   &:hover {
+//     background: ${({ theme }) => theme.colors.secondary};
+//   }
+// `;
+export const QuantityWrapper = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  
+  button {
+    background: ${({ theme }) => theme.colors.primary};
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 5px 10px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    
+    &:hover {
+      background: ${({ theme }) => theme.colors.secondary};
+    }
+  }
+
+  span {
+    font-size: 16px;
+    font-weight: bold;
+  }
+`;
+
 
 export const ThemeToggle = styled.button`
   background: none;
