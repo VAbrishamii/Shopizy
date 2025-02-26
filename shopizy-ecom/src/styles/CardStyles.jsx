@@ -49,11 +49,11 @@ z-index: 10;
 
 export const ProductImageWrapper = styled.div`
   width: 100%;
-  height: 200px; /* ✅ Adjust height to fit nicely */
+  height: 200px; 
   display: flex;
   align-items: center;
   justify-content: center;
-  overflow: hidden; /* ✅ Prevents stretching */
+  overflow: hidden;
 `;
 
 export const ProductImage = styled.img`
