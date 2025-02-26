@@ -23,8 +23,6 @@ import logo from "../assets/logo.jpg";
 import { useMediaQuery } from "react-responsive";
 
 
-
-
 const Header = () => {
 
   const { theme, toggleTheme } = useThemeStore();
@@ -34,10 +32,7 @@ const Header = () => {
 
   const [isCartOpen, setIsCartOpen] = useState(false);
   
-
   const totalItems = cart.reduce((total, item) => total + item.quantity, 0);
-
-  
 
   return (
     <HeaderContainer>
@@ -63,8 +58,15 @@ const Header = () => {
             <Headset size={24} />
           </Link>
 
+          <Link to="/cart">
+            <CartWrapper>
+              <ShoppingBagIcon width={28} height={28} />
+              {totalItems > 0 && <CartBadge>{totalItems}</CartBadge>}
+            </CartWrapper>
+          </Link>
 
-          <DropdownMenu.Root>
+
+          {/* <DropdownMenu.Root>
             <DropdownMenu.Trigger asChild>
               <CartWrapper>
                 <ShoppingBagIcon width={28} height={28} />
@@ -74,7 +76,7 @@ const Header = () => {
             <DropdownMenu.Portal>
               <CartSummary cart={cart} updateQuantity={updateQuantity} removeFromCart={removeFromCart} />
             </DropdownMenu.Portal>
-          </DropdownMenu.Root>
+          </DropdownMenu.Root> */}
 
           <Link to="/account">
             <User size={24} />
@@ -88,8 +90,8 @@ const Header = () => {
           <IconLink to="/support">
             <Headset size={24} />
           </IconLink>
-
-          <DropdownMenu.Root>
+          
+          <DropdownMenu.Root open={isCartOpen} onOpenChange={setIsCartOpen}>
             <DropdownMenu.Trigger asChild>
               <CartWrapper>
                 <ShoppingBagIcon width={28} height={28} />
@@ -97,7 +99,11 @@ const Header = () => {
               </CartWrapper>
             </DropdownMenu.Trigger>
             <DropdownMenu.Portal>
-              <CartSummary cart={cart} updateQuantity={updateQuantity} removeFromCart={removeFromCart} />
+              <CartSummary
+                cart={cart}
+                updateQuantity={updateQuantity}
+                removeFromCart={removeFromCart}
+              />
             </DropdownMenu.Portal>
           </DropdownMenu.Root>
 

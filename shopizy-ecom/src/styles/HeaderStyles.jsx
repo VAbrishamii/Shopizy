@@ -175,71 +175,71 @@ export const CheckoutButton = styled(Link)`
 `;
 
 
-// export const CartDropdown = styled.div.withConfig({shouldForwardProp: (prop) => prop !== "isMobile"})`
-//   position: absolute;
-//   top: 60px;
-//   right: ${({ isMobile }) => (isMobile ? "-50px" : "0")};
-//   width: ${({ isMobile }) => (isMobile ? "100vw" : "300px")};
-//   background: ${({ theme }) => theme.colors.card};
-//   border: 1px solid #ddd;
-//   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
-//   border-radius: 8px;
-//   padding: 10px;
-//   z-index: 1000;
+export const CartDropdown = styled.div.withConfig({shouldForwardProp: (prop) => prop !== "isMobile"})`
+  position: absolute;
+  top: 60px;
+  right: ${({ isMobile }) => (isMobile ? "-50px" : "0")};
+  width: ${({ isMobile }) => (isMobile ? "100vw" : "300px")};
+  background: ${({ theme }) => theme.colors.card};
+  border: 1px solid #ddd;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+  border-radius: 8px;
+  padding: 10px;
+  z-index: 1000;
 
-//   .total {
-//     text-align: right;
-//     font-weight: bold;
-//     margin-top: 10px;
-//   }
-// `;
+  .total {
+    text-align: right;
+    font-weight: bold;
+    margin-top: 10px;
+  }
+`;
 
-// export const CartItem = styled.div`
-//   display: flex;
-//   align-items: center;
-//   justify-content: space-between;
-//   padding: 8px 0;
-//   border-bottom: 1px solid #ddd;
+export const CartItem = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 0;
+  border-bottom: 1px solid #ddd;
 
-//   img {
-//     width: 50px;
-//     height: 50px;
-//     object-fit: cover;
-//     border-radius: 5px;
-//   }
+  img {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    border-radius: 5px;
+  }
 
-//   h3 {
-//     font-size: 14px;
-//     margin: 0;
-//     color: ${({ theme }) => theme.colors.textPrimary};
-//   }
+  h3 {
+    font-size: 14px;
+    margin: 0;
+    color: ${({ theme }) => theme.colors.textPrimary};
+  }
 
-//   p {
-//     font-size: 12px;
-//     color: ${({ theme }) => theme.colors.textSecondary};
-//   }
-// `;
+  p {
+    font-size: 12px;
+    color: ${({ theme }) => theme.colors.textSecondary};
+  }
+`;
 
-// export const CartActions = styled.div`
-//   display: flex;
-//   flex-direction: column;
-//   align-items: center;
-//   gap: 5px;
+export const CartActions = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
 
-//   button {
-//     background: none;
-//     border: none;
-//     cursor: pointer;
-//     font-size: 14px;
-//     padding: 4px;
-//     border-radius: 5px;
-//     transition: background 0.2s ease;
+  button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 14px;
+    padding: 4px;
+    border-radius: 5px;
+    transition: background 0.2s ease;
 
-//     &:hover {
-//       background: rgba(0, 0, 0, 0.1);
-//     }
-//   }
-// `;
+    &:hover {
+      background: rgba(0, 0, 0, 0.1);
+    }
+  }
+`;
 // export const CheckoutButton = styled.button`
 //   width: 100%;
 //   padding: 10px;

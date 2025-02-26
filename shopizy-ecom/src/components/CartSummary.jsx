@@ -1,43 +1,47 @@
+import * as DropdownMenu from "@radix-ui/react-dropdown-menu";
+import { CartSummaryContainer, CartItem, CartImage, CartDetails, CartActions, CheckoutButton } from "../styles/CartSummaryStyles";
 import { Minus, Plus, Trash2 } from "lucide-react";
 import { Link } from "react-router-dom";
-import * as DropdownMenu from "@radix-ui/react-dropdown-menu";
-import { CheckoutButton, CartSummaryContainer } from "../styles/CartSummaryStyles";
+import useCartStore from "../store/useCartStore";
 
-const CartSummary = ({ cart, updateQuantity, removeFromCart }) => {
+const CartSummary = () => {
+  const { cart, updateQuantity, removeFromCart } = useCartStore ();
   return (
-    <DropdownMenu.Content asChild>
-      <CartSummaryContainer className="cart-summary">
+    <DropdownMenu.Content asChild align="end" sideOffset={10}>
+      <CartSummaryContainer>
         {cart.length === 0 ? (
-          <p>Your cart is empty.</p>
+          <p className="empty-cart">Your cart is empty.</p>
         ) : (
-          cart.map((item) => (
-            <div key={item.id} className="cart-item">
-              <img src={item.image.url} alt={item.title} />
-              <div className="cart-details">
-                <p>{item.title}</p>
-                <p>${item.price.toFixed(2)}</p>
-                <div className="cart-actions">
-                  <button onClick={() => updateQuantity(item.id, Math.max(1, item.quantity - 1))}>
-                    <Minus size={18} />
-                  </button>
-                  <span>{item.quantity}</span>
-                  <button onClick={() => updateQuantity(item.id, item.quantity + 1)}>
-                    <Plus size={18} />
-                  </button>
-                  <button onClick={() => removeFromCart(item.id)}>
-                    <Trash2 size={18} />
-                  </button>
-                </div>
-              </div>
-            </div>
-          ))
+          <>
+            {cart.map((item) => (
+              <CartItem key={item.id}>
+                <CartImage src={item.image.url} alt={item.title} />
+                <CartDetails>
+                  <p className="title">{item.title}</p>
+                  <p className="price">${item.price.toFixed(2)}</p>
+                  <CartActions>
+                    <button onClick={() => updateQuantity(item.id, - 1)}>
+                      <Minus size={16} />
+                    </button>
+                    <span>{item.quantity}</span>
+                    <button onClick={() => updateQuantity(item.id, + 1)}>
+                      <Plus size={16} />
+                    </button>
+                    <button onClick={() => removeFromCart(item.id)}>
+                      <Trash2 size={16} />
+                    </button>
+                  </CartActions>
+                </CartDetails>
+              </CartItem>
+            ))}
+            <CheckoutButton as={Link} to="/cart">Go to Cart</CheckoutButton>
+            <CheckoutButton as={Link} to="/checkout">Checkout</CheckoutButton>
+          </>
         )}
-        
-        <CheckoutButton to="/cart">Go to Cart</CheckoutButton>
-        <CheckoutButton to="/checkout">Checkout</CheckoutButton>
       </CartSummaryContainer>
     </DropdownMenu.Content>
   );
 };
 
 export default CartSummary;
+

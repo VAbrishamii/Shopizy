@@ -47,7 +47,7 @@ const CartPage = () => {
                 <span>Total:</span>
                 <span>${total.toFixed(2)}</span>
             </div>
-            <CheckoutButton>Continue</CheckoutButton>
+            <CheckoutButton>CheckOut</CheckoutButton>
         </SummaryContainer>
     )}
     

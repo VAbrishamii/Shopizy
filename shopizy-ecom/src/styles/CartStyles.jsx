@@ -49,14 +49,7 @@ export const CartActions = styled.div`
   gap: 10px;
 `;
 
-// export const QuantityInput = styled.input`
-//   width: 50px;
-//   padding: 5px;
-//   text-align: center;
-//   font-size: 14px;
-//   border: 1px solid ${({ theme }) => theme.colors.textSecondary};
-//   border-radius: 5px;
-// `;
+
 export const QuantityWrapeper = styled.div`
   display: flex;
   align-items: center;
@@ -84,8 +77,7 @@ export const QuantityWrapeper = styled.div`
    } 
 `;
 export const RemoveButton = styled.button`
-  background-color: ${({ theme }) => theme.colors.error};
-  color: white;
+  color: ${({ theme }) => theme.colors.error};
   padding: 5px 10px;
   border: none;
   cursor: pointer;
@@ -100,17 +92,11 @@ export const RemoveButton = styled.button`
   transition: background 0.3s ease;
 
   &:hover {
-    background-color: ${({ theme }) => theme.colors.secondary};
+    transform: scale(1.2);
   }
 `;
 
-// export const CartTotal = styled.div`
-//   text-align: right;
-//   font-size: 18px;
-//   font-weight: bold;
-//   margin-top: 15px;
-//   color: ${({ theme }) => theme.colors.textPrimary};
-// `;
+
 export const SummaryContainer = styled.div`
   padding: 20px;
   margin-top: 20px;
@@ -137,6 +123,7 @@ export const SummaryContainer = styled.div`
 
 export const CheckoutButton = styled.button`
   width: 100%;
+  margin: 0 auto;
   background-color: ${({ theme }) => theme.colors.primary};
   color: white;
   border: none;

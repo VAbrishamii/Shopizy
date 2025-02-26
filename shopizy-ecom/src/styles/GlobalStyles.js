@@ -41,7 +41,6 @@ export const GlobalStyles = createGlobalStyle`
   }
 
   button {
-    background-color: ${({ theme }) => theme.colors.primary};
     color: ${({ theme }) => theme.colors.textPrimary};
     padding: ${({ theme }) => theme.spacing.medium};
     border: none;
