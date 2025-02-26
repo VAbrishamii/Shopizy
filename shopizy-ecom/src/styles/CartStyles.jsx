@@ -78,6 +78,7 @@ export const QuantityWrapeper = styled.div`
 `;
 export const RemoveButton = styled.button`
   color: ${({ theme }) => theme.colors.error};
+  background: none;
   padding: 5px 10px;
   border: none;
   cursor: pointer;

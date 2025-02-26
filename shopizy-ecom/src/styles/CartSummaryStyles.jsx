@@ -42,14 +42,22 @@ export const CartDetails = styled.div`
 export const CartActions = styled.div`
   display: flex;
   align-items: center;
+  justify-content: space-between;
   gap: 5px;
-
+  
   button {
     background: none;
     border: none;
     cursor: pointer;
     padding: 4px;
+    
+    };
+  
   }
+`;
+export const TrashButton = styled.button`
+  color: ${({ theme }) => theme.colors.error};
+}
 `;
 
 export const CheckoutButton = styled(Link)`
@@ -57,7 +65,7 @@ export const CheckoutButton = styled(Link)`
   text-align: center;
   width: 100%;
   background: ${({ theme }) => theme.colors.primary};
-  color: ${({ theme }) => theme.colors.textPrimary};
+  color: ${({ theme }) => theme.colors.white};
   padding: 10px;
   border-radius: 5px;
   text-decoration: none;

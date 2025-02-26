@@ -1,5 +1,5 @@
 import * as DropdownMenu from "@radix-ui/react-dropdown-menu";
-import { CartSummaryContainer, CartItem, CartImage, CartDetails, CartActions, CheckoutButton } from "../styles/CartSummaryStyles";
+import { CartSummaryContainer, CartItem, CartImage, CartDetails, CartActions, CheckoutButton, TrashButton} from "../styles/CartSummaryStyles";
 import { Minus, Plus, Trash2 } from "lucide-react";
 import { Link } from "react-router-dom";
 import useCartStore from "../store/useCartStore";
@@ -27,10 +27,12 @@ const CartSummary = () => {
                     <button onClick={() => updateQuantity(item.id, + 1)}>
                       <Plus size={16} />
                     </button>
-                    <button onClick={() => removeFromCart(item.id)}>
+                    <TrashButton onClick={() => removeFromCart(item.id)}>
                       <Trash2 size={16} />
-                    </button>
+                    </TrashButton>
+                  
                   </CartActions>
+                  
                 </CartDetails>
               </CartItem>
             ))}
