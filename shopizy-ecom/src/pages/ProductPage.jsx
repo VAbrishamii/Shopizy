@@ -23,9 +23,8 @@ const ProductPage = () => {
 
 
 
-  const rawReviews = product.reviews?.data || {}; 
-  const reviews = rawReviews && typeof rawReviews === "object" ? Object.keys(rawReviews).map(key => rawReviews[key]) : [];
-  console.log("Product reviews:", reviews);
+  const reviews = Array.isArray(product.reviews) ? product.reviews : []; 
+  console.log("Final Product reviews array:", reviews);  
 
   return (
     <ProductWrapper>

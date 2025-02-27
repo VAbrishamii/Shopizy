@@ -1,4 +1,4 @@
-import {ReviewContainer, ReviewTitle, ReviewText, ReviewItem, NoReviews} from '../styles/ReviewStyles';
+import {ReviewContainer, ReviewTitle, ReviewerName, ReviewText, ReviewItem, NoReviews} from '../styles/ReviewStyles';
 import RatingStars from './RatingStars';
 
 const ProductReview = ({ reviews }) => {
@@ -9,10 +9,10 @@ const ProductReview = ({ reviews }) => {
        <ReviewTitle>Customer Reviews</ReviewTitle>
       {reviews.length > 0 ? (
         reviews.map((review, index) => (
-        <ReviewItem key={index}>
-          <ReviewerName>{review.Username || "Anonymous"}</ReviewerName>
-          <ReviewText>{review.description || "No review text provided."}</ReviewText>
-        <RatingStars rating={review.rating} />
+        <ReviewItem key={review.id || index}>
+          <ReviewerName>{review?.username || "Anonymous"}</ReviewerName>
+          <ReviewText>{review?.description || "No review text provided."}</ReviewText>
+        <RatingStars rating={review?.rating || 0} />
         </ReviewItem>
       )) 
     ) : (
