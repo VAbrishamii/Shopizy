@@ -6,19 +6,26 @@ export const PriceContainer = styled.div`
   display: flex;
   flex-direction: column;
   gap: 5px;
-  // align-items: center;
-  
+  align-items: flex-start;
+  margin-top: 5px;
 `;
 
 export const OriginalPrice = styled.span`
-  text-decoration: ${({ $hasDiscount }) => ($hasDiscount ? "line-through" : "none")}; 
-  color: ${({ $hasDiscount, theme }) => theme.colors.textPrimary}; 
+  text-decoration: ${({ $hasDiscount }) =>
+    $hasDiscount ? "line-through" : "none"};
+  color: ${({ $hasDiscount, theme }) => theme.colors.textPrimary};
 `;
-  
 
 export const DiscountedPrice = styled.span`
   color: ${({ theme }) => theme.colors.error};
 `;
 
+export const DiscounteBadge = styled.span`
+  color: ${({ theme }) => theme.colors.success};
+  padding: 3px 0px;
+  font-size: 0.8rem;
+  border-radius: 4px;
+  font-weight: bold;
+`;
 
 export default PriceContainer;
