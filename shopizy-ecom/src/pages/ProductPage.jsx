@@ -5,6 +5,7 @@ import PriceDisplay from "../components/PriceDisplay";
 import RatingStars from "../components/RatingStars";
 import { ProductDescription, ProductTitle } from "../styles/CardStyles";
 import { AddToCartProduct, ImageProduct, ProductWrapper } from "../styles/ProductPageStyle";
+import ProductReview from "../components/Review";
 
 const ProductPage = () => {
   const { id } = useParams();
@@ -17,6 +18,14 @@ const ProductPage = () => {
 
   const product = products.data.find((product) => product.id === id);
   if (!product) return <h2>Product not found</h2>;
+  console.log('product', product);
+  console.log("Product reviews data:", product.reviews);
+
+
+
+  const rawReviews = product.reviews?.data || {}; 
+  const reviews = rawReviews && typeof rawReviews === "object" ? Object.keys(rawReviews).map(key => rawReviews[key]) : [];
+  console.log("Product reviews:", reviews);
 
   return (
     <ProductWrapper>
@@ -30,6 +39,12 @@ const ProductPage = () => {
       />
        <AddToCartProduct onClick={() => addToCart(product)} />
       <RatingStars rating={product.rating} />
+      {reviews.length > 0 ? (  
+      <ProductReview reviews={reviews} />
+    ) : (
+      <p>No reviews to display.</p>  
+    )}
+
     </ProductWrapper>
   );
 };
