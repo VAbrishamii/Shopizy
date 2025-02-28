@@ -3,10 +3,22 @@ import { CartSummaryContainer, CartItem, CartImage, CartDetails, CartActions, Ch
 import { Minus, Plus, Trash2 } from "lucide-react";
 import { Link } from "react-router-dom";
 import useCartStore from "../store/useCartStore";
+import { useNavigate } from "react-router-dom";
 
 const CartSummary = () => {
   const { cart, updateQuantity, removeFromCart } = useCartStore ();
+
+  const navigate = useNavigate();  
+  const handleCheckout = () => {
+    if (cart.length === 0) {
+      alert("Your cart is empty!");
+      return;
+    }
+    navigate("/checkout", { state: { cart } }); // ✅ Pass cart data
+  };
+
   return (
+  
     <DropdownMenu.Content asChild align="end" sideOffset={10}>
       <CartSummaryContainer>
         {cart.length === 0 ? (
@@ -37,7 +49,7 @@ const CartSummary = () => {
               </CartItem>
             ))}
             <CheckoutButton as={Link} to="/cart">Go to Cart</CheckoutButton>
-            <CheckoutButton as={Link} to="/checkout">Checkout</CheckoutButton>
+            <CheckoutButton as="button" onClick={handleCheckout}>Checkout</CheckoutButton>
           </>
         )}
       </CartSummaryContainer>

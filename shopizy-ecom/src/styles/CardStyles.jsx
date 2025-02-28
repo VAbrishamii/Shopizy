@@ -149,24 +149,23 @@ export const ProductPageLink = styled(Link)`
 `;
 
 
-export const FloatingImage = styled.img`
+export const FloatingImage = styled.img.attrs(({ startX, startY, endX, endY }) => ({
+  style: {
+    left: `${startX}px`,
+    top: `${startY}px`,
+    transform: `translate(${endX - startX}px, ${endY - startY}px) scale(0.3)`,
+    opacity: 1,  // Set default opacity in style
+  },
+}))`
   position: fixed;
-  width: 100px; 
-  height: 100px;
-  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  border-radius: 10px;
   pointer-events: none;
   z-index: 9999;
-  transition:
-    transform 0.8s cubic-bezier(0.4, 0, 0.02, 1), 
-    opacity 0.6s ease-in-out; 
-  opacity: ${(props) => (props.visible ? 1 : 0)};
-  left: ${(props) => props.startX}px;
-  top: ${(props) => props.startY}px;
-  transform: ${(props) =>
-    props.visible
-      ? `translate(${props.endX - props.startX}px, ${props.endY - props.startY}px) scale(0.2)`
-      : "translate(0,0) scale(1)"};
+  transition: 
+    transform 0.8s cubic-bezier(0.4, 0, 0.2, 1),
+    opacity 0.6s ease-in-out;
+
+  ${({ $visible }) => !$visible && "opacity: 0;"} /* ✅ Only apply opacity via CSS */
 `;
-
-
-

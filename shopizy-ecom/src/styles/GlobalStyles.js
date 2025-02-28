@@ -56,9 +56,37 @@ export const GlobalStyles = createGlobalStyle`
     transition: color 0.3s ease, transform 0.2s ease;
     }
 
-  // button:hover {
-  //   background-color: ${({ theme }) => theme.colors.secondary};
-  // }
+    /* Works in Chrome, Edge, Safari */
+  ::-webkit-scrollbar {
+    width: 8px; /* ✅ Adjust scrollbar width */
+  }
+
+  ::-webkit-scrollbar-track {
+    background: ${({ theme }) => theme.colors.background}; /* ✅ Matches background */
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: ${({ theme }) => theme.colors.textPrimary}; /* ✅ Scrollbar color */
+    border-radius: 10px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: ${({ theme }) => theme.colors.lightGray}; /* ✅ Scrollbar color on hover */
+  }
+
+  /* Hide scrollbar for mobile */
+  @media (max-width: 768px) {
+    ::-webkit-scrollbar {
+      display: none;
+    }
+  }
+
+  /* 🔥 Smooth Scrolling Effect */
+  html {
+    scroll-behavior: smooth;
+  }
+
+  
 `;
 
 export default GlobalStyles;
