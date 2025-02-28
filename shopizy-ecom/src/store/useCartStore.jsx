@@ -3,6 +3,7 @@ import { create } from "zustand";
 const useCartStore = create((set) => ({
     cart: JSON.parse(localStorage.getItem("cart")) || [],
     addToCart: (product) =>
+      
         set((state) => {
             const existingItem = state.cart.find((item) => item.id === product.id);
             let updatedCart;
@@ -13,9 +14,14 @@ const useCartStore = create((set) => ({
             } else {
                 updatedCart = [...state.cart, { ...product, quantity: 1 }];
             }
-            localStorage.setItem("cart", JSON.stringify(updatedCart));
-            console.log('udpatedCart', updatedCart);
+            // localStorage.setItem("cart", JSON.stringify(updatedCart));
+            // console.log('udpatedCart', updatedCart);
+            setTimeout(() => {
+                localStorage.setItem("cart", JSON.stringify(updatedCart));
+                console.log("✅ Updated Cart:", updatedCart); // 🔥 Debugging log
+            }, 0);
             return { cart: updatedCart };
+    
         }
     ),
     updateQuantity: (id, change) =>

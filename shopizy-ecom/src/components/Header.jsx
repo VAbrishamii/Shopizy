@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { Home, User, Headset } from "lucide-react";
 import {ShoppingBagIcon} from "@heroicons/react/24/outline";
 import { Link } from "react-router-dom";
@@ -21,18 +21,19 @@ import {
 import CartSummary from "./CartSummary";
 import logo from "../assets/logo.jpg";
 import { useMediaQuery } from "react-responsive";
+// import ProductCard from "./ProductCard";
 
 
-const Header = () => {
+const Header = ({cartIconRef}) => {
 
   const { theme, toggleTheme } = useThemeStore();
   const {cart, updateQuantity, removeFromCart } = useCartStore();
   const isMobile = useMediaQuery({ maxWidth: 768 });
- 
-
   const [isCartOpen, setIsCartOpen] = useState(false);
   
   const totalItems = cart.reduce((total, item) => total + item.quantity, 0);
+
+  // const cartIconRef = useRef(null);
 
   return (
     <HeaderContainer>
@@ -59,24 +60,11 @@ const Header = () => {
           </Link>
 
           <Link to="/cart">
-            <CartWrapper>
+            <CartWrapper ref={cartIconRef}>
               <ShoppingBagIcon width={28} height={28} />
               {totalItems > 0 && <CartBadge>{totalItems}</CartBadge>}
             </CartWrapper>
           </Link>
-
-
-          {/* <DropdownMenu.Root>
-            <DropdownMenu.Trigger asChild>
-              <CartWrapper>
-                <ShoppingBagIcon width={28} height={28} />
-                {totalItems > 0 && <CartBadge>{totalItems}</CartBadge>}
-              </CartWrapper>
-            </DropdownMenu.Trigger>
-            <DropdownMenu.Portal>
-              <CartSummary cart={cart} updateQuantity={updateQuantity} removeFromCart={removeFromCart} />
-            </DropdownMenu.Portal>
-          </DropdownMenu.Root> */}
 
           <Link to="/account">
             <User size={24} />
@@ -93,10 +81,10 @@ const Header = () => {
           
           <DropdownMenu.Root open={isCartOpen} onOpenChange={setIsCartOpen}>
             <DropdownMenu.Trigger asChild>
-              <CartWrapper>
+              <CartWrapper ref={cartIconRef}>
                 <ShoppingBagIcon width={28} height={28} />
                 {totalItems > 0 && <CartBadge>{totalItems}</CartBadge>}
-              </CartWrapper>
+              </CartWrapper >
             </DropdownMenu.Trigger>
             <DropdownMenu.Portal>
               <CartSummary
@@ -112,7 +100,8 @@ const Header = () => {
           </IconLink>
         </NavLinks>
       )}
-        
+       
+        {/* <ProductCard cartIconRef={cartIconRef} /> */}
     </HeaderContainer>
   );
 };

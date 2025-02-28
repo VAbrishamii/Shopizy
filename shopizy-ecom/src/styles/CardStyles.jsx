@@ -147,39 +147,26 @@ export const ProductPageLink = styled(Link)`
     text-decoration: underline;
   }
 `;
-// export const ProductInfo = styled.div`
-//   padding: 10px;
-//   flex-grow: 1;
-//   display: flex;
-//   flex-direction: column;
-//   justify-content: space-between;
-// `;
 
-// export const ProductTitle = styled.h3`
-//   font-size: 16px;
-//   color: ${({ theme }) => theme.colors.textPrimary};
-//   margin-bottom: 5px;
-// `;
-// export const ProductDescription = styled.p`
-//   font-size: 14px;
-//   color: ${({ theme }) => theme.colors.textSecondary};
-//   margin-top: 5px;
-//   flex-grow: 1;
-// `;
-// export const ProductPageLink = styled(Link)`
-//   font-size: 14px;
-//   color: ${({ theme }) => theme.colors.primary};
-//   margin-top: 10px;
-//   display: block;
-//   align-self: flex-end;
-//   margin-top: auto;
-//   align-text: right;
-//   text-decoration: none;
-//   &:hover {
-//     text-decoration: underline;
-//   }
-// `;
 
+export const FloatingImage = styled.img`
+  position: fixed;
+  width: 100px; 
+  height: 100px;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9999;
+  transition:
+    transform 0.8s cubic-bezier(0.4, 0, 0.02, 1), 
+    opacity 0.6s ease-in-out; 
+  opacity: ${(props) => (props.visible ? 1 : 0)};
+  left: ${(props) => props.startX}px;
+  top: ${(props) => props.startY}px;
+  transform: ${(props) =>
+    props.visible
+      ? `translate(${props.endX - props.startX}px, ${props.endY - props.startY}px) scale(0.2)`
+      : "translate(0,0) scale(1)"};
+`;
 
 
 

@@ -7,15 +7,16 @@ import ProductPage from "./pages/ProductPage";
 
 function App() {
   return (
-    <Layout>
-      <Routes>
+    
+    <Routes>
+      <Route element={<Layout />}>
         <Route path="/" element={<HomePage />} />
         <Route path="/cart" element={<CartPage />} />
         <Route path="/product/:id" element={<ProductPage />} />
-
         {/* <Route path="/contact" element={<ContactPage />} />  */}
-      </Routes>
-    </Layout>
+      </Route>
+    </Routes>
+    
   );
 }
 
