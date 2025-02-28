@@ -1,12 +1,14 @@
 import styled from "styled-components";
 
 export const CartContainer = styled.div`
-  max-width: 800px;
+  // max-width: 800px;
+  display: flex;
+  flex-direction: column;
   margin: 50px auto;
   padding: 20px;
-  background-color: ${({ theme }) => theme.colors.card};
-  border-radius: 10px;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  // background-color: ${({ theme }) => theme.colors.card};
+  // border-radius: 10px;
+  // box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 `;
 
 export const CartItem = styled.div`

@@ -1,5 +1,5 @@
 
-import { CheckoutContainer, Message, BackButton,  } from "../styles/checkOutStyle";
+import { CheckoutContainer, CheckoutContent, Title, Message, BackButton, PurchasedItemsContainer, ItemList, Item } from "../styles/checkOutStyle";
 import { useEffect } from "react";
 import { useLocation, Link } from "react-router-dom";
 import useCartStore from "../store/useCartStore";
@@ -15,19 +15,29 @@ const CheckoutPage = () => {
 
   return (
     <CheckoutContainer>
-      <Message> You successfully completed your purchase! </Message>
+    <CheckoutContent>
+      <Title>🎉 Congratulations! 🎉</Title>
+      <Message>You successfully completed your purchase!</Message>
       {cart.length > 0 && (
-        <div>
-          <h3>Purchased Items:</h3>
-          <ul>
-            {cart.map((item) => (
-              <li key={item.id}>{item.title} - ${item.price} (Qyt{item.quantity})</li>
-            ))}
-          </ul>
-        </div>
-      )}
-      <BackButton to="/">Back to Home</BackButton>
-    </CheckoutContainer>
+        
+        <PurchasedItemsContainer>
+            <h3>Purchased Items:</h3>
+            <ItemList>
+              {cart.map((item) => (
+                <Item key={item.id}>
+                  <div>
+                  <img src={item.image.url} alt={item.title.url}  />
+                  <span>{item.title}</span>
+                  </div>
+                  <span>${item.price} (Qty: {item.quantity})</span>
+                </Item>
+              ))}
+            </ItemList>
+          </PurchasedItemsContainer>
+        )}
+    </CheckoutContent>
+    <BackButton to="/">Back to Home</BackButton>
+  </CheckoutContainer>
   );
 };
 

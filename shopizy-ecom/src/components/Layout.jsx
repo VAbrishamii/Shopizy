@@ -11,9 +11,12 @@ const Layout = ({ children }) => {
     <>
     <div className="layout">
       <Header cartIconRef={cartIconRef}/>
-      <Outlet context={{cartIconRef}}/>
+     
       <div className="content">
-        <main>{children}</main>
+        <main>
+        <Outlet context={{cartIconRef}}/>
+        {children}
+        </main>
       </div>
       <Footer />
     </div>
