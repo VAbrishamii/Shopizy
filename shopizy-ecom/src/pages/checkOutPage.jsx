@@ -1,29 +1,16 @@
 
-// import { CheckoutContainer, Message, BackButton,  } from "../styles/checkOutStyle";
-
-// const CheckOutPage = () => {
-//     return (
-//         <CheckoutContainer>
-//         <Message>You successfully completed your purchase!</Message>
-//         <BackButton to="/">Back to Home</BackButton>
-//         </CheckoutContainer>
-//     );
-//     }
-//     export default CheckOutPage;
-
-
+import { CheckoutContainer, Message, BackButton,  } from "../styles/checkOutStyle";
 import { useEffect } from "react";
 import { useLocation, Link } from "react-router-dom";
-import { CheckoutContainer, Message, BackButton } from "../styles/CheckoutStyle";
 import useCartStore from "../store/useCartStore";
 
 const CheckoutPage = () => {
   const location = useLocation();
-  const cart = location.state?.cart || []; // ✅ Retrieve cart data from state
+  const cart = location.state?.cart || []; 
   const { clearCart } = useCartStore();
 
   useEffect(() => {
-    clearCart(); // ✅ Clear cart AFTER user arrives at checkout
+    clearCart(); 
   }, []);
 
   return (
