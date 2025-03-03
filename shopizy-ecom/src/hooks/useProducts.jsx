@@ -20,6 +20,8 @@ export const useProducts = () => {
         staleTime: 1000 * 60 * 5,
         refetchOnWindowFocus: false,
         retry: 1, 
-    onError: (error) => console.error("❌ React Query Error:", error.message),
+    onError: (error) => console.error("React Query Error:", error.message),
     });
     };
+
+   
