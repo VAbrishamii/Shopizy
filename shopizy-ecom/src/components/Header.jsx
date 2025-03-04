@@ -20,10 +20,9 @@ import {
   MobileNav,
 } from "../styles/HeaderStyles";
 import CartSummary from "./CartSummary";
-import WishlistSummary from "./WishListSummary";
 import logo from "../assets/logo.png";
 import { useMediaQuery } from "react-responsive";
-// import ProductCard from "./ProductCard";
+
 
 
 const Header = ({cartIconRef}) => {
@@ -72,13 +71,19 @@ const Header = ({cartIconRef}) => {
             </CartWrapper>
           </Link>
 
-           <CartWrapper onClick={() => setIsWishlistOpen(!isWishlistOpen)}>
+           {/* <CartWrapper onClick={() => setIsWishlistOpen(!isWishlistOpen)}>
             <Heart size={24} />
             {wishlistCount > 0 && <CartBadge>{wishlistCount}</CartBadge>}
           </CartWrapper>
           {isWishlistOpen && (
             <WishlistSummary removeFromWishlist={removeFromWishlist} />
-          )}
+          )} */}
+           <Link to="/wishlist">
+            <CartWrapper>
+              <Heart size={24} />
+              {wishlistCount > 0 && <CartBadge>{wishlistCount}</CartBadge>}
+            </CartWrapper>
+          </Link>
         </MobileNav>
       ) : (
         <NavLinks>
@@ -107,8 +112,8 @@ const Header = ({cartIconRef}) => {
           </DropdownMenu.Root>
 {/* 
          {/* Wishlist Dropdown */}
-         {/* <DropdownMenu.Root open={isWishlistOpen} onOpenChange={setIsWishlistOpen}>*/}
-          <DropdownMenu.Root>
+        
+          {/* <DropdownMenu.Root>
             <DropdownMenu.Trigger asChild>
               <CartWrapper>
                 <Heart size={24} />
@@ -120,7 +125,13 @@ const Header = ({cartIconRef}) => {
               <WishlistSummary removeFromWishlist={removeFromWishlist} />
               </DropdownMenu.Content>
             </DropdownMenu.Portal>
-          </DropdownMenu.Root>
+          </DropdownMenu.Root> */}
+          <Link to="/wishlist">
+            <CartWrapper>
+              <Heart size={24} />
+              {wishlistCount > 0 && <CartBadge>{wishlistCount}</CartBadge>}
+            </CartWrapper>
+          </Link>
         </NavLinks>
       )}
    

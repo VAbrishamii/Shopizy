@@ -83,7 +83,7 @@ export const BackButton = styled(Link)`
   margin-top: 20px;
 
   &:hover {
-    background-color: ${({ theme }) => theme.colors.primary };
+    // background-color: ${({ theme }) => theme.colors.primary };
     transform: scale(1.05);
   }
 `;
