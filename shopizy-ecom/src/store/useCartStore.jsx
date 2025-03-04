@@ -18,7 +18,7 @@ const useCartStore = create((set) => ({
             // console.log('udpatedCart', updatedCart);
             setTimeout(() => {
                 localStorage.setItem("cart", JSON.stringify(updatedCart));
-                console.log("✅ Updated Cart:", updatedCart); // 🔥 Debugging log
+                console.log("Updated Cart:", updatedCart); // 🔥 Debugging log
             }, 0);
             return { cart: updatedCart };
     

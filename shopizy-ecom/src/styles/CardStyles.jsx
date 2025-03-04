@@ -64,6 +64,7 @@ export const ProductImageWrapper = styled.div`
   align-items: center;
   justify-content: center;
   overflow: hidden;
+
   background-color: ${({ theme }) => theme.colors.background}; /* Adds a fallback background */
 `;
 

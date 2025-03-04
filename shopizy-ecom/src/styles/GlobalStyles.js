@@ -58,7 +58,7 @@ export const GlobalStyles = createGlobalStyle`
 
     /* Works in Chrome, Edge, Safari */
   ::-webkit-scrollbar {
-    width: 8px; /* ✅ Adjust scrollbar width */
+    width: 8px; 
   }
 
   ::-webkit-scrollbar-track {
@@ -66,12 +66,12 @@ export const GlobalStyles = createGlobalStyle`
   }
 
   ::-webkit-scrollbar-thumb {
-    background: ${({ theme }) => theme.colors.textPrimary}; /* ✅ Scrollbar color */
+    background: ${({ theme }) => theme.colors.darkGray}; /* ✅ Scrollbar color */
     border-radius: 10px;
   }
 
   ::-webkit-scrollbar-thumb:hover {
-    background: ${({ theme }) => theme.colors.lightGray}; /* ✅ Scrollbar color on hover */
+    background: ${({ theme }) => theme.colors.darkGray}; /* ✅ Scrollbar color on hover */
   }
 
   /* Hide scrollbar for mobile */

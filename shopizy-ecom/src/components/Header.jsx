@@ -1,5 +1,5 @@
-import { useState, useRef } from "react";
-import { Home, User, Headset } from "lucide-react";
+import { useState } from "react";
+import { Home, Headset, Heart } from "lucide-react";
 import {ShoppingBagIcon} from "@heroicons/react/24/outline";
 import { Link } from "react-router-dom";
 import useThemeStore from "../store/useThemeStore";
@@ -66,8 +66,8 @@ const Header = ({cartIconRef}) => {
             </CartWrapper>
           </Link>
 
-          <Link to="/account">
-            <User size={24} />
+          <Link to="/wishlist">
+            <Heart size={24} />
           </Link>
         </MobileNav>
       ) : (
@@ -95,8 +95,8 @@ const Header = ({cartIconRef}) => {
             </DropdownMenu.Portal>
           </DropdownMenu.Root>
 
-          <IconLink to="/account">
-            <User size={24} />
+          <IconLink to="/wishlist">
+            <Heart size={24} />
           </IconLink>
         </NavLinks>
       )}

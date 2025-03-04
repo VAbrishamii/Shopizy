@@ -3,6 +3,8 @@ import { motion, useAnimation } from "framer-motion";
 import PriceDisplay from "./PriceDisplay";
 import useCartStore from "../store/useCartStore";
 import { useRef, useState } from "react";
+import RatingStars from "./RatingStars";
+import WishList from "./WishList";
 import {
   CardContainer,
   ProductImage,
@@ -13,20 +15,23 @@ import {
   AddToCartIcon,
   ProductPageLink,
 } from "../styles/CardStyles";
-import RatingStars from "./RatingStars";
+
+
 
 const ProductCard = ({ product, cartIconRef }) => {
   if (!product) {
     console.error("ProductCard: ", product);
     return null;
   }
-  // console.log('product in ProductCard:', product);
+
+ 
+ 
   const addToCart = useCartStore((state) => state.addToCart);
   const cart = useCartStore((state) => state.cart) || [];
   const isInCart = cart.some((item) => item.id === product.id);
   const [showFloating, setShowFloating] = useState(false);
-  const [bagIconPos, setBagIconPos] = useState(null);
-  const [cartIconPos, setCartIconPos] = useState(null);
+  const [floatingPosition, setFloatingPosition] = useState();
+ 
 
   const controls = useAnimation();
   const floatingRef = useRef(null);
@@ -39,22 +44,19 @@ const ProductCard = ({ product, cartIconRef }) => {
 
     const bagIcon = e.currentTarget.getBoundingClientRect();
     const cartIcon = cartIconRef.current.getBoundingClientRect();
-    console.log('bagIcon:', bagIcon);
-    console.log('cartIcon:', cartIcon);
-    const scrollY = window.scrollY;
-    const scrollX = window.scrollX;
     const isCartFixed = window.getComputedStyle(cartIconRef.current).position === "fixed";
 
-    setBagIconPos({
-      x: bagIcon.left + bagIcon.width / 2, // Center of bag icon
-      y: bagIcon.top + bagIcon.height / 2 + scrollY, // Center of bag icon
-    });
-    setCartIconPos({
-      x: cartIcon.left + cartIcon.width / 2 + (isCartFixed ? 0 : scrollX), // Center of cart icon
-      y: cartIcon.top + cartIcon.height / 2 + (isCartFixed ? 0 : scrollY), // Center of cart icon
+    setFloatingPosition({
+      start: {
+        x: bagIcon.left + bagIcon.width / 2,
+        y: bagIcon.top + bagIcon.height / 2 + window.scrollY,
+      },
+      end: {
+        x: cartIcon.left + cartIcon.width / 2 + (isCartFixed ? 0 : window.scrollX),
+        y: cartIcon.top + cartIcon.height / 2 + (isCartFixed ? 0 : window.scrollY),
+      },
     });
     setShowFloating(true);
-    
     await controls.start({
       x: cartIcon.left - bagIcon.left,
       y: cartIcon.top - bagIcon.top,
@@ -67,17 +69,20 @@ const ProductCard = ({ product, cartIconRef }) => {
       addToCart(product);
     }, 1000);
   };
+   
 
   return (
     <>
       <CardContainer>
+        {/* <WishList product={product} /> */}
         <AddToCartIcon
           onClick={handelAddToCart}
           isInCart={isInCart}
           className="bag-icon"
         />
         <ProductImageWrapper>
-          <ProductImage
+        <WishList product={product} />
+        <ProductImage
             src={product.image.url}
             alt={`Image of ${product.image.alt}`}
           />
@@ -95,33 +100,33 @@ const ProductCard = ({ product, cartIconRef }) => {
 
         {/* Floating Image Animation */}
 
-        {showFloating && (
-          <motion.img
-            ref={floatingRef}
-            src={product.image.url}
-            alt=""
-            initial={{
-              opacity: 1,
-              scale: 1,
-              left: `${bagIconPos.x}px`,
-              top: `${bagIconPos.y}px`,
-            }}
-            animate={{
-              left: `${cartIconPos.x}px`,
-              top: `${cartIconPos.y}px`,
-              scale: 0.3,
-              opacity: 0,
-              transition: { duration: 2, ease: "easeOut" },
-            }}
-            style={{
-              position: "absolute",
-              width: "50px",
-              height: "50px",
-              zIndex: 999,
-              pointerEvents: "none",
-            }}
-          />
-        )}
+        {showFloating && floatingPosition.start && floatingPosition.end && (
+        <motion.img
+          ref={floatingRef}
+          src={product.image.url}
+          alt=""
+          initial={{
+            opacity: 1,
+            scale: 1,
+            left: `${floatingPosition.start.x}px`,
+            top: `${floatingPosition.start.y}px`,
+          }}
+          animate={{
+            left: `${floatingPosition.end.x}px`,
+            top: `${floatingPosition.end.y}px`,
+            scale: 0.3,
+            opacity: 0,
+            transition: { duration: 1, ease: "easeOut" },
+          }}
+          style={{
+            position: "fixed",
+            width: "50px",
+            height: "50px",
+            zIndex: 999,
+            pointerEvents: "none",
+          }}
+        />
+      )}
       </CardContainer>
     </>
   );
