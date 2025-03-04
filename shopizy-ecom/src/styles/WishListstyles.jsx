@@ -1,147 +1,93 @@
-// import styled from "styled-components";
-
-// export const WishListContainer = styled.button`
-//   position: absolute;
-//   top: 0px;
-//   left: 5px;
-//   background: none;
-//   border: none;
-//   cursor: pointer;
-//   font-size: 20px;
-//   color: ${({ isActive }) => (isActive ? "red" : "black")};
-//   transition: color 0.3s ease-in-out, transform 0.3s ease-in-out;
-//   z-index: 10;
-
-//   &:hover {
-//     color: red;
-//     transform: scale(1.1);
-//   }
-// `;
-
-// export const WishlistDropdown = styled.div`
-//   position: absolute;
-//   top: 10px;
-//   right: 5px;
-//   background: white;
-//   border-radius: 8px;
-//   box-shadow: ${({ theme }) => theme.colors.boxShadow};
-//   width: 250px;
-//   max-height: 300px;
-//   overflow-y: auto;
-//   padding: 10px;
-//   z-index: 1000;
-// `;
-
-// export const WishlistItem = styled.div`
-//   display: flex;
-//   align-items: center;
-//   justify-content: space-between;
-//   padding: 8px 0;
-//   border-bottom: 1px solid #ddd;
-
-//   &:last-child {
-//     border-bottom: none;
-//   }
-// `;
-
-// export const WishlistImage = styled.img`
-//   width: 40px;
-//   height: 40px;
-//   border-radius: 4px;
-//   object-fit: cover;
-// `;
-
-// export const WishlistInfo = styled.div`
-//   flex-grow: 1;
-//   padding: 0 10px;
-
-//   p {
-//     margin: 0;
-//     font-size: 14px;
-//     color: ${({ theme }) => theme.colors.textPrimary};
-//   }
-
-//   strong {
-//     font-size: 14px;
-//     color: ${({ theme }) => theme.colors.primary};
-//   }
-// `;
-
-// export const WishlistActions = styled.div`
-//   display: flex;
-// //   gap: 3px;
-
-//   button {
-//     background: none;
-//     border: none;
-//     cursor: pointer;
-//     transition: transform 0.2s ease-in-out;
-
-//     &:hover {
-//       transform: scale(1.1);
-//     }
-//     svg {
-//       width: 20px;
-//       height: 20px;
-//     }
-//   }
-// `;
-
-// export const EmptyMessage = styled.p`
-//   text-align: center;
-//   font-size: 14px;
-//   color: ${({ theme }) => theme.colors.textSecondary};
-//   padding: 20px;
-// `;
 import styled from "styled-components";
 
-export const WishListContainer = styled.div`
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 20px;
+export const WishListContainer = styled.button`
+  position: absolute;
+  top: 0px;
+  left: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 20px;
+  color: ${({ isActive }) => (isActive ? "red" : "black")};
+  transition: color 0.3s ease-in-out, transform 0.3s ease-in-out;
+  z-index: 10;
 
-  h1 {
-    text-align: center;
-    font-size: 24px;
-    margin-bottom: 20px;
+  &:hover {
+    color: red;
+    transform: scale(1.1);
   }
 `;
-
-export const WishlistGrid = styled.div`
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 20px;
-`;
-
-export const WishlistItem = styled.div`
-  background: ${({ theme }) => theme.colors.card};
-  border-radius: 8px;
-  box-shadow: ${({ theme }) => theme.boxShadow};
-  padding: 10px;
+export const WishListContainerwrappper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  margin: 20px auto;
+  padding: 20px;
+`;
+
+export const WishlistList = styled.div`
+  display: flex;
+  flex-direction: column;
+
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 20px;
+  align-items: flex-start;
+  gap: 20px;
+ 
+`;
+
+export const WishlistItem = styled.div`
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   text-align: center;
   transition: transform 0.3s;
-
+  width: 100%;
+  border-bottom: 1px solid ${({ theme }) => theme.colors.textSecondary};
   &:hover {
     transform: scale(1.05);
   }
 `;
 
 export const WishlistImage = styled.img`
-  width: 100%;
-  height: 180px;
+  width: 100px;
+  height: 100px;
   object-fit: contain;
   border-radius: 8px;
   cursor: pointer;
+  padding: 10px;
+  flex-shrink: 0;
 `;
 
 export const WishlistInfo = styled.div`
+  flow-grow: 1;
   margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+  justify-content: center;
+  gap: 10px;
+  padding-left: 10px;
+
+  span {
+    display: flex;
+    align-items: left;
+    justify-content: space-between;
+    width: 100%;
+  }
+
+  h1{
+    font-size: 18px;
+    color: ${({ theme }) => theme.colors.textPrimary};
+  }
   p {
     font-size: 16px;
-    font-weight: bold;
+    width: 100%;
     color: ${({ theme }) => theme.colors.textPrimary};
   }
   strong {
@@ -154,6 +100,9 @@ export const WishlistActions = styled.div`
   display: flex;
   gap: 10px;
   margin-top: 10px;
+  align-items: center;
+  justify-content: flex-end;
+  min-width: 100px;
 
   button {
     background: none;
