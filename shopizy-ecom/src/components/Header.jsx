@@ -19,7 +19,7 @@ import {
   MobileNav,
 } from "../styles/HeaderStyles";
 import CartSummary from "./CartSummary";
-import logo from "../assets/logo.jpg";
+import logo from "../assets/logo.png";
 import { useMediaQuery } from "react-responsive";
 // import ProductCard from "./ProductCard";
 
@@ -55,7 +55,7 @@ const Header = ({cartIconRef}) => {
           <Link to="/">
             <Home size={24} />
           </Link>
-          <Link to="/support">
+          <Link to="/contact">
             <Headset size={24} />
           </Link>
 
@@ -75,7 +75,7 @@ const Header = ({cartIconRef}) => {
           <IconLink to="/">
             <Home size={24} />
           </IconLink>
-          <IconLink to="/support">
+          <IconLink to="/contact">
             <Headset size={24} />
           </IconLink>
           

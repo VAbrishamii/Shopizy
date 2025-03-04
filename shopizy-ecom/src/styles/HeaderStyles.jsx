@@ -27,9 +27,17 @@ export const TopHeader = styled.div`
 `;
 
 export const Logo = styled.img`
-  width: 50px;
+  width: 60px;
+  height: 60px;
+  object-fit: cover;
   cursor: pointer;
   border-radius: 50%;
+  padding: 5px;
+  border: 1px solid ${({ theme }) => theme.colors.primary};
+
+  &:hover {
+    transform: scale(1.1) rotate(5deg); /* Slight rotation & scale */
+  }
 `;
 
 export const NavLinks = styled.div`
