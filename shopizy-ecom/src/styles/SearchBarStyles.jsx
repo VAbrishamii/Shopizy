@@ -54,13 +54,10 @@ export const ResultsContainer = styled.div`
     top: 100%;
     left: 20px;
     max-height: 250px;
-    // transform: translateX(-50%)
     background-color: ${({ theme }) => theme.colors.card};
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    border: 1px solid ${({ theme }) => theme.textPrimary};
     border-radius: 5px;
     overflow-y: auto;
-    // margin-top: 150px;
     z-index: 1000;
     padding: 10px;
     @media (max-width: 768px) {

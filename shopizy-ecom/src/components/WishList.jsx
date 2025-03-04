@@ -19,6 +19,7 @@ const WishList = ({ product }) => {
         size={24}
         onClick={handleWishList}
         fill={isWishListed ? "red" : "none"}
+        color={isWishListed ? "red" : "black"}
       />
     </WishListContainer>
   );

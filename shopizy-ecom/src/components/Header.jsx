@@ -4,6 +4,7 @@ import {ShoppingBagIcon} from "@heroicons/react/24/outline";
 import { Link } from "react-router-dom";
 import useThemeStore from "../store/useThemeStore";
 import useCartStore from "../store/useCartStore";
+import useWishlistStore from "../store/useWishlistStore";
 import * as DropdownMenu from "@radix-ui/react-dropdown-menu";
 import {
   HeaderContainer,
@@ -19,6 +20,7 @@ import {
   MobileNav,
 } from "../styles/HeaderStyles";
 import CartSummary from "./CartSummary";
+import WishlistSummary from "./WishListSummary";
 import logo from "../assets/logo.png";
 import { useMediaQuery } from "react-responsive";
 // import ProductCard from "./ProductCard";
@@ -28,10 +30,14 @@ const Header = ({cartIconRef}) => {
 
   const { theme, toggleTheme } = useThemeStore();
   const {cart, updateQuantity, removeFromCart } = useCartStore();
+  const { wishlist, removeFromWishlist } = useWishlistStore();
   const isMobile = useMediaQuery({ maxWidth: 768 });
+
   const [isCartOpen, setIsCartOpen] = useState(false);
+  const [isWishlistOpen, setIsWishlistOpen] = useState(false);
   
   const totalItems = cart.reduce((total, item) => total + item.quantity, 0);
+  const wishlistCount = wishlist.length;
 
   // const cartIconRef = useRef(null);
 
@@ -66,9 +72,13 @@ const Header = ({cartIconRef}) => {
             </CartWrapper>
           </Link>
 
-          <Link to="/wishlist">
+           <CartWrapper onClick={() => setIsWishlistOpen(!isWishlistOpen)}>
             <Heart size={24} />
-          </Link>
+            {wishlistCount > 0 && <CartBadge>{wishlistCount}</CartBadge>}
+          </CartWrapper>
+          {isWishlistOpen && (
+            <WishlistSummary removeFromWishlist={removeFromWishlist} />
+          )}
         </MobileNav>
       ) : (
         <NavLinks>
@@ -79,7 +89,8 @@ const Header = ({cartIconRef}) => {
             <Headset size={24} />
           </IconLink>
           
-          <DropdownMenu.Root open={isCartOpen} onOpenChange={setIsCartOpen}>
+          {/* <DropdownMenu.Root open={isCartOpen} onOpenChange={setIsCartOpen}> */}
+          <DropdownMenu.Root>
             <DropdownMenu.Trigger asChild>
               <CartWrapper ref={cartIconRef}>
                 <ShoppingBagIcon width={28} height={28} />
@@ -94,14 +105,25 @@ const Header = ({cartIconRef}) => {
               />
             </DropdownMenu.Portal>
           </DropdownMenu.Root>
-
-          <IconLink to="/wishlist">
-            <Heart size={24} />
-          </IconLink>
+{/* 
+         {/* Wishlist Dropdown */}
+         {/* <DropdownMenu.Root open={isWishlistOpen} onOpenChange={setIsWishlistOpen}>*/}
+          <DropdownMenu.Root>
+            <DropdownMenu.Trigger asChild>
+              <CartWrapper>
+                <Heart size={24} />
+                {wishlistCount > 0 && <CartBadge>{wishlistCount}</CartBadge>}
+              </CartWrapper>
+            </DropdownMenu.Trigger>
+            <DropdownMenu.Portal>
+              <DropdownMenu.Content>
+              <WishlistSummary removeFromWishlist={removeFromWishlist} />
+              </DropdownMenu.Content>
+            </DropdownMenu.Portal>
+          </DropdownMenu.Root>
         </NavLinks>
       )}
-       
-        {/* <ProductCard cartIconRef={cartIconRef} /> */}
+   
     </HeaderContainer>
   );
 };
