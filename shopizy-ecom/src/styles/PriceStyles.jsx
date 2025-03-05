@@ -21,11 +21,12 @@ export const DiscountedPrice = styled.span`
 `;
 
 export const DiscounteBadge = styled.span`
-  color: ${({ theme }) => theme.colors.success};
+  color: ${({ theme }) => theme.colors.error};
   padding: 3px 0px;
   font-size: 0.8rem;
-  border-radius: 4px;
+  border-radius: 50%;
   font-weight: bold;
+  // background-color: ${({ theme }) => theme.colors.success};
 `;
 
 export default PriceContainer;

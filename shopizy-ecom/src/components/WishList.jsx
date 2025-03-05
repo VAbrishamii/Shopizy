@@ -14,7 +14,7 @@ const WishList = ({ product }) => {
       }
     };
   return (
-    <WishListContainer $isActive={isWishListed} onClick={handleWishList}>
+    <WishListContainer $isActive={isWishListed} onClick={handleWishList} aria-label={isWishListed ? "Remove from wishlist" : "Add to wishlist"}>
       <Heart
         size={18}
         onClick={handleWishList}

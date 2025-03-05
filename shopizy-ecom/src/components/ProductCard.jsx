@@ -49,7 +49,7 @@ const ProductCard = ({ product, cartIconRef }) => {
   return (
     <>
       <CardContainer>
-        <AddToCartIcon  ref={triggerRef} onClick={handelAddToCart} isInCart={isInCart}>
+        <AddToCartIcon  ref={triggerRef} onClick={handelAddToCart} isInCart={isInCart} aria-label={isInCart ? "Remove from cart" : "Add to cart"}>
           <ShoppingBagIconStyled  />
         </AddToCartIcon>
 
@@ -58,7 +58,7 @@ const ProductCard = ({ product, cartIconRef }) => {
           
           <ProductImage
             src={product.image.url}
-            alt={`Image of ${product.image.alt}`}
+            alt={`${product.image.alt}`}
             loading="lazy"
           />
          

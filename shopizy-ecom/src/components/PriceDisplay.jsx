@@ -24,7 +24,7 @@ const PriceDisplay = ({ price, discountedPrice }) => {
       {hasDiscount && (
         <>
           <DiscountedPrice>${discountedPrice.toFixed(2)}</DiscountedPrice>
-          <DiscounteBadge>{discountPercentage}% OFF</DiscounteBadge>
+          <DiscounteBadge>{discountPercentage}%OFF</DiscounteBadge>
         </>
       )}
     </StyledPriceContainer>

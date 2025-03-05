@@ -125,7 +125,7 @@ export const ProductInfo = styled.div`
   justify-content: space-between;  
 `;
 
-export const ProductTitle = styled.h3`
+export const ProductTitle = styled.h1`
   font-size: 16px;
   color: ${({ theme }) => theme.colors.textPrimary};
   margin-bottom: 5px;

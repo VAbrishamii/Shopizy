@@ -21,7 +21,7 @@ const HomePage = () => {
   return (
     <>
       <SearchBar />
-     <ProductListContainer>
+      <ProductListContainer>
       {products.data.map((product) => (
         <ProductCard key={product.id} product={product}  cartIconRef={cartIconRef}/>
       ))}

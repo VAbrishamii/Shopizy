@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Home, Headset, Heart } from "lucide-react";
-import {ShoppingBagIcon} from "@heroicons/react/24/outline";
+import { ShoppingBagIcon } from "@heroicons/react/24/outline";
 import { Link } from "react-router-dom";
 import useThemeStore from "../store/useThemeStore";
 import useCartStore from "../store/useCartStore";
@@ -23,18 +23,12 @@ import CartSummary from "./CartSummary";
 import logo from "../assets/logo.png";
 import { useMediaQuery } from "react-responsive";
 
-
-
-const Header = ({cartIconRef}) => {
-
+const Header = ({ cartIconRef }) => {
   const { theme, toggleTheme } = useThemeStore();
-  const {cart, updateQuantity, removeFromCart } = useCartStore();
-  const { wishlist, removeFromWishlist } = useWishlistStore();
+  const { cart, updateQuantity, removeFromCart } = useCartStore();
+  const { wishlist } = useWishlistStore();
   const isMobile = useMediaQuery({ maxWidth: 768 });
 
-  const [isCartOpen, setIsCartOpen] = useState(false);
-  const [isWishlistOpen, setIsWishlistOpen] = useState(false);
-  
   const totalItems = cart.reduce((total, item) => total + item.quantity, 0);
   const wishlistCount = wishlist.length;
 
@@ -43,24 +37,24 @@ const Header = ({cartIconRef}) => {
   return (
     <HeaderContainer>
       <TopHeader>
-        <Link to="/">
+        <Link to="/" aria-label="Home">
           <Logo src={logo} alt="Shopizy" />
         </Link>
         {/* Dark Mode Toggle */}
         <ThemeToggle onClick={toggleTheme} title="Toggle Theme">
           <ToggleSwitch isDark={theme === "dark"}>
             <ToggleSlider isDark={theme === "dark"} />
-            </ToggleSwitch>
+          </ToggleSwitch>
         </ThemeToggle>
       </TopHeader>
 
       {/* Mobile Navigation */}
       {isMobile ? (
         <MobileNav>
-          <Link to="/">
+          <Link to="/" aria-label="Home">
             <Home size={24} />
           </Link>
-          <Link to="/contact">
+          <Link to="/contact" aria-label="Contact">
             <Headset size={24} />
           </Link>
 
@@ -71,14 +65,7 @@ const Header = ({cartIconRef}) => {
             </CartWrapper>
           </Link>
 
-           {/* <CartWrapper onClick={() => setIsWishlistOpen(!isWishlistOpen)}>
-            <Heart size={24} />
-            {wishlistCount > 0 && <CartBadge>{wishlistCount}</CartBadge>}
-          </CartWrapper>
-          {isWishlistOpen && (
-            <WishlistSummary removeFromWishlist={removeFromWishlist} />
-          )} */}
-           <Link to="/wishlist">
+          <Link to="/wishlist" aria-label="Wishlist">
             <CartWrapper>
               <Heart size={24} />
               {wishlistCount > 0 && <CartBadge>{wishlistCount}</CartBadge>}
@@ -87,20 +74,19 @@ const Header = ({cartIconRef}) => {
         </MobileNav>
       ) : (
         <NavLinks>
-          <IconLink to="/">
+          <IconLink to="/" aria-label="Home">
             <Home size={24} />
           </IconLink>
-          <IconLink to="/contact">
+          <IconLink to="/contact" aria-label="Contact">
             <Headset size={24} />
           </IconLink>
-          
-          {/* <DropdownMenu.Root open={isCartOpen} onOpenChange={setIsCartOpen}> */}
+
           <DropdownMenu.Root>
             <DropdownMenu.Trigger asChild>
               <CartWrapper ref={cartIconRef}>
                 <ShoppingBagIcon width={28} height={28} />
                 {totalItems > 0 && <CartBadge>{totalItems}</CartBadge>}
-              </CartWrapper >
+              </CartWrapper>
             </DropdownMenu.Trigger>
             <DropdownMenu.Portal>
               <CartSummary
@@ -110,23 +96,7 @@ const Header = ({cartIconRef}) => {
               />
             </DropdownMenu.Portal>
           </DropdownMenu.Root>
-{/* 
-         {/* Wishlist Dropdown */}
-        
-          {/* <DropdownMenu.Root>
-            <DropdownMenu.Trigger asChild>
-              <CartWrapper>
-                <Heart size={24} />
-                {wishlistCount > 0 && <CartBadge>{wishlistCount}</CartBadge>}
-              </CartWrapper>
-            </DropdownMenu.Trigger>
-            <DropdownMenu.Portal>
-              <DropdownMenu.Content>
-              <WishlistSummary removeFromWishlist={removeFromWishlist} />
-              </DropdownMenu.Content>
-            </DropdownMenu.Portal>
-          </DropdownMenu.Root> */}
-          <Link to="/wishlist">
+          <Link to="/wishlist" aria-label="Wishlist">
             <CartWrapper>
               <Heart size={24} />
               {wishlistCount > 0 && <CartBadge>{wishlistCount}</CartBadge>}
@@ -134,7 +104,6 @@ const Header = ({cartIconRef}) => {
           </Link>
         </NavLinks>
       )}
-   
     </HeaderContainer>
   );
 };
