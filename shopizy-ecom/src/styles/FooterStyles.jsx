@@ -29,8 +29,8 @@ export const FooterLinks = styled.div`
     text-decoration: none;
     font-size: 14px;
 
-    &:hover {
-      text-decoration: underline;
-    }
+    // &:hover {
+    //   text-decoration: underline;
+    // }
   }
 `;

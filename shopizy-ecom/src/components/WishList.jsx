@@ -16,7 +16,7 @@ const WishList = ({ product }) => {
   return (
     <WishListContainer $isActive={isWishListed} onClick={handleWishList}>
       <Heart
-        size={24}
+        size={18}
         onClick={handleWishList}
         fill={isWishListed ? "red" : "none"}
         color={isWishListed ? "red" : "black"}

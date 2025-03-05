@@ -1,4 +1,5 @@
 
+import PriceDisplay from "../components/PriceDisplay";
 import useCartStore from "../store/useCartStore";
 import {
   CartContainer,
@@ -12,6 +13,8 @@ import {
 } from "../styles/CartStyles";
 import { Minus, Plus, Trash2 } from "lucide-react";
 import { useNavigate } from "react-router-dom";
+import { ProductDescription, ProductTitle } from "../styles/CardStyles";
+
 
 const CartPage = () => {
   const { cart, updateQuantity, removeFromCart, getTotalPrice, clearCart } =
@@ -41,8 +44,9 @@ const CartPage = () => {
           <CartItem key={`${item.id}-${index}`}>
             <img src={item.image?.url} alt={item.title} />
             <CartDetails>
-              <h3>{item.title}</h3>
-              <p>${item.price ? item.price.toFixed(2) : "N/A"}</p>{" "}
+              <ProductTitle>{item.title}</ProductTitle>
+              <ProductDescription>{item.description}</ProductDescription>
+              <PriceDisplay price={item.price} discountedPrice={item.discountedPrice} />
               {/* ✅ Prevent errors */}
             </CartDetails>
             <CartActions>

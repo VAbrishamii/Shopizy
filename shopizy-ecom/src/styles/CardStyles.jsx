@@ -35,26 +35,53 @@ export const CardContainer = styled.div`
 `;
 
 
-export const AddToCartIcon = styled(({ isInCart, ...props }) => (
-  <ShoppingBagIcon {...props} />
-))`
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  cursor: pointer;
-  transition: color 0.3s ease-in-out, transform 0.3s ease-in-out;
-  width: 22px;
-  height: 22px;
-  z-index: 10;
 
-  color: ${({ isInCart, theme }) => (isInCart ? theme.colors.error : theme.colors.black)};
+export const AddToCartIcon = styled(({ isInCart, ...props }) => (
+  <button {...props} />
+))`
+  all: unset; /* Removes global button styles */
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  cursor: pointer;
+  transition: transform 0.3s ease-in-out, background 0.3s ease-in-out;
+  width: 30px; 
+  height: 30px;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(5px);
+
 
   &:hover {
-    color: ${({ theme }) => theme.colors.error};
     transform: scale(1.1);
+  }
+  & > svg {
+    width: 20px;
+    height: 20px;
+    color: ${({ theme, isInCart }) => (isInCart ? theme.colors.error : theme.colors.black)};
+    transition: color 0.3s ease-in-out;
+  }
+
+  &:hover > svg {
+    color: ${({ theme }) => theme.colors.error};
   }
 `;
 
+/* The Icon inside the button */
+export const ShoppingBagIconStyled = styled(ShoppingBagIcon)`
+  width: 18px; /* Ensures correct size */
+  height: 18px;
+  color: ${({ isInCart, theme }) => (isInCart ? theme.colors.error : theme.colors.black)};
+  transition: color 0.3s ease-in-out;
+
+  ${AddToCartIcon}:hover & {
+    color: ${({ theme }) => theme.colors.error};
+  }
+`;
 
 export const ProductImageWrapper = styled.div`
   width: 100%;

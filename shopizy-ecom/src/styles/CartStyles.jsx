@@ -1,14 +1,20 @@
 import styled from "styled-components";
 
 export const CartContainer = styled.div`
-  // max-width: 800px;
   display: flex;
   flex-direction: column;
   margin: 50px auto;
   padding: 20px;
-  // background-color: ${({ theme }) => theme.colors.card};
-  // border-radius: 10px;
-  // box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  p{
+    text-align: center;
+    font-size: 16px;
+    color: ${({ theme }) => theme.colors.textPrimary};
+    margin-top: 20px;
+  }
+    h2{
+    text-align: center;
+    }
+ 
 `;
 
 export const CartItem = styled.div`
@@ -30,18 +36,9 @@ export const CartDetails = styled.div`
   flex: 1;
   display: flex;
   flex-direction: column;
+  align-items: flex-start;
   padding: 0 15px;
 
-  h3 {
-    font-size: 16px;
-    margin-bottom: 5px;
-    color: ${({ theme }) => theme.colors.textPrimary};
-  }
-
-  p {
-    font-size: 14px;
-    color: ${({ theme }) => theme.colors.textSecondary};
-  }
 `;
 
 export const CartActions = styled.div`

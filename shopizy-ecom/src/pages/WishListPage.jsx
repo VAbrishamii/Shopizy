@@ -12,6 +12,8 @@ import {
   WishlistActions,
   EmptyMessage,
 } from "../styles/WishListstyles";
+import { ProductDescription, ProductTitle } from "../styles/CardStyles";
+import PriceDisplay from "../components/PriceDisplay";
 
 const WishlistPage = () => {
   const { wishlist, removeFromWishlist } = useWishlistStore();
@@ -29,35 +31,37 @@ const WishlistPage = () => {
         <EmptyMessage>Your wishlist is empty.</EmptyMessage>
       ) : (
         <WishlistList>
-        {wishlist.map((product) => (
-          <WishlistItem key={product.id}>
-            {/* Clickable Image - Goes to Product Page */}
-            <Link to={`/product/${product.id}`}>
-              <WishlistImage src={product.image.url} alt={product.title} />
-            </Link>
+          {wishlist.map((product) => (
+            <WishlistItem key={product.id}>
+              {/* Clickable Image - Goes to Product Page */}
+              <Link to={`/product/${product.id}`}>
+                <WishlistImage src={product.image.url} alt={product.title} />
+              </Link>
 
-            <WishlistInfo>
-              <span>
-              <h1>{product.title}</h1>
-              <strong>${product.price.toFixed(2)}</strong>
-              </span>
-              <p>{product.description}</p>
-            </WishlistInfo>
+              <WishlistInfo>
 
-            <WishlistActions>
-              {/* Move to Cart Button */}
-              <button onClick={() => handleMoveToCart(product)}>
-                <ShoppingBagIcon />
-              </button>
+                <ProductTitle>{product.title}</ProductTitle>
+                <ProductDescription>{product.description}</ProductDescription>
+                <PriceDisplay
+                  price={product.price}
+                  discountedPrice={product.discountedPrice}
+                />
+              </WishlistInfo>
 
-              {/* Remove from Wishlist Button */}
-              <button onClick={() => removeFromWishlist(product.id)}>
-                <Trash2 size={18} color="red" />
-              </button>
-            </WishlistActions>
-          </WishlistItem>
-        ))}
-      </WishlistList>
+              <WishlistActions>
+                {/* Move to Cart Button */}
+                <button onClick={() => handleMoveToCart(product)}>
+                  <ShoppingBagIcon />
+                </button>
+
+                {/* Remove from Wishlist Button */}
+                <button onClick={() => removeFromWishlist(product.id)}>
+                  <Trash2 size={18} color="red" />
+                </button>
+              </WishlistActions>
+            </WishlistItem>
+          ))}
+        </WishlistList>
       )}
     </WishListContainerwrappper>
   );

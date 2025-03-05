@@ -1,13 +1,20 @@
 import styled from "styled-components";
 
 export const WishListContainer = styled.button`
+  all: unset;
   position: absolute;
-  top: 0px;
+  top: 5px;
   left: 5px;
-  background: none;
   border: none;
   cursor: pointer;
-  font-size: 20px;
+  border-radius: 50%;
+  text-align: center;
+  display: flex;
+  padding: 5px;
+  align-items: center;
+  justify-content: center;
+  background:rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(5px);
   color: ${({ isActive }) => (isActive ? "red" : "black")};
   transition: color 0.3s ease-in-out, transform 0.3s ease-in-out;
   z-index: 10;
@@ -16,47 +23,40 @@ export const WishListContainer = styled.button`
     color: red;
     transform: scale(1.1);
   }
+  
 `;
 export const WishListContainerwrappper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-between;
-  width: 100%;
+  justify-content: center;
+  width: 80%;
   margin: 20px auto;
   padding: 20px;
-`;
-
-export const WishlistList = styled.div`
-  display: flex;
-  flex-direction: column;
-
-  align-items: center;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 20px;
-  align-items: flex-start;
-  gap: 20px;
  
 `;
 
-export const WishlistItem = styled.div`
-  padding: 10px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  text-align: center;
-  transition: transform 0.3s;
+export const WishlistList = styled.ul`
+  list-style: none;
   width: 100%;
+  max-width: 800px;
+  padding: 0;
+`;
+
+
+export const WishlistItem = styled.li`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: ${({ theme }) => theme.cardBackground};
+  padding: 15px;
+  margin-bottom: 15px;
   border-bottom: 1px solid ${({ theme }) => theme.colors.textSecondary};
-  &:hover {
-    transform: scale(1.05);
-  }
 `;
 
 export const WishlistImage = styled.img`
-  width: 100px;
-  height: 100px;
+  width: 150px;
+  height: 150px;
   object-fit: contain;
   border-radius: 8px;
   cursor: pointer;
@@ -65,7 +65,7 @@ export const WishlistImage = styled.img`
 `;
 
 export const WishlistInfo = styled.div`
-  flow-grow: 1;
+  flex: 1;
   margin-top: 10px;
   display: flex;
   flex-direction: column;
@@ -73,13 +73,6 @@ export const WishlistInfo = styled.div`
   justify-content: center;
   gap: 10px;
   padding-left: 10px;
-
-  span {
-    display: flex;
-    align-items: left;
-    justify-content: space-between;
-    width: 100%;
-  }
 
   h1{
     font-size: 18px;
@@ -93,6 +86,9 @@ export const WishlistInfo = styled.div`
   strong {
     color: ${({ theme }) => theme.colors.primary};
     font-size: 18px;
+    disply: flex;
+    flex-direction: column;
+    align-items: center;
   }
 `;
 
