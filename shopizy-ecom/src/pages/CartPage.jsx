@@ -51,16 +51,16 @@ const CartPage = () => {
             </CartDetails>
             <CartActions>
               <QuantityWrapeper>
-                <button onClick={() => updateQuantity(item.id, -1)}>
+                <button onClick={() => updateQuantity(item.id, -1)} aria-label="Decrease quantity">
                   <Minus sizze={18} />
                 </button>
                 <span>{item.quantity}</span>
-                <button onClick={() => updateQuantity(item.id, +1)}>
+                <button onClick={() => updateQuantity(item.id, +1)} aria-label="Increase quantity">
                   <Plus size={18} />
                 </button>
               </QuantityWrapeper>
 
-              <RemoveButton onClick={() => removeFromCart(item.id)}>
+              <RemoveButton onClick={() => removeFromCart(item.id)} aria-label="Remove item">
                 <Trash2 size={18} />
               </RemoveButton>
             </CartActions>

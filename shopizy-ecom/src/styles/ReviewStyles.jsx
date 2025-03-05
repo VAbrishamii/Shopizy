@@ -8,7 +8,7 @@ export const ReviewContainer = styled.div`
   box-shadow: ${({ theme }) => theme.boxShadow};
 `;
 
-export const ReviewTitle = styled.h3`
+export const ReviewTitle = styled.h2`
   font-size: 18px;
   margin-bottom: 10px;
   color: ${({ theme }) => theme.colors.textPrimary};

@@ -50,12 +50,12 @@ const WishlistPage = () => {
 
               <WishlistActions>
                 {/* Move to Cart Button */}
-                <button onClick={() => handleMoveToCart(product)}>
+                <button onClick={() => handleMoveToCart(product)} aria-label="Move to Cart">
                   <ShoppingBagIcon />
                 </button>
 
                 {/* Remove from Wishlist Button */}
-                <button onClick={() => removeFromWishlist(product.id)}>
+                <button onClick={() => removeFromWishlist(product.id)} aria-label="Remove from Wishlist">
                   <Trash2 size={18} color="red" />
                 </button>
               </WishlistActions>
