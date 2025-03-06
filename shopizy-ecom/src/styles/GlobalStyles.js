@@ -62,16 +62,16 @@ export const GlobalStyles = createGlobalStyle`
   }
 
   ::-webkit-scrollbar-track {
-    background: ${({ theme }) => theme.colors.background}; /* ✅ Matches background */
+    background: ${({ theme }) => theme.colors.background}; 
   }
 
   ::-webkit-scrollbar-thumb {
-    background: ${({ theme }) => theme.colors.darkGray}; /* ✅ Scrollbar color */
+    background: ${({ theme }) => theme.colors.darkGrey}; 
     border-radius: 10px;
   }
 
   ::-webkit-scrollbar-thumb:hover {
-    background: ${({ theme }) => theme.colors.darkGray}; /* ✅ Scrollbar color on hover */
+    background: ${({ theme }) => theme.colors.darkGrey}; 
   }
 
   /* Hide scrollbar for mobile */
@@ -81,7 +81,7 @@ export const GlobalStyles = createGlobalStyle`
     }
   }
 
-  /* 🔥 Smooth Scrolling Effect */
+  /* Smooth Scrolling Effect */
   html {
     scroll-behavior: smooth;
   }
