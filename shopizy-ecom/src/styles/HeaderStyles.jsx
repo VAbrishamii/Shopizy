@@ -2,6 +2,11 @@ import styled from "styled-components";
 import { Link } from "react-router-dom";
 
 export const HeaderContainer = styled.header`
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: 1000;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -41,7 +46,6 @@ export const Logo = styled.img`
 `;
 
 export const NavLinks = styled.div`
-
   display: flex;
   gap: ${({ theme }) => theme.spacing.medium};
 `;
@@ -68,18 +72,22 @@ export const IconLink = styled(Link)`
   }
 `;
 export const CartWrapper = styled.div`
-  position: relative; 
+  position: relative;
   display: inline-block;
 `;
-export const CartBadge = styled.span.withConfig({shouldForwardProp: (prop) => prop !== "isMobile" && prop !== "isTablet"})`
+export const CartBadge = styled.span.withConfig({
+  shouldForwardProp: (prop) => prop !== "isMobile" && prop !== "isTablet",
+})`
   position: absolute;
   top: 6px;
   right: 2px;
   transform: translate(50%, -50%);
-  // top: ${({ isMobile = false, isTablet = false }) => (isMobile ? "10px" : isTablet ? "-1px" : "-1px")};
-  // right: ${({ isMobile = false, isTablet = false }) => (isMobile ? "267px" : isTablet ? "-6px" : "-6px")};
+  // top: ${({ isMobile = false, isTablet = false }) =>
+    isMobile ? "10px" : isTablet ? "-1px" : "-1px"};
+  // right: ${({ isMobile = false, isTablet = false }) =>
+    isMobile ? "267px" : isTablet ? "-6px" : "-6px"};
   color: white;
-  background-color: ${({ theme }) => theme.colors.error};  
+  background-color: ${({ theme }) => theme.colors.error};
   font-size: 12px;
   font-weight: bold;
   padding: 3px 3px;
@@ -93,7 +101,6 @@ export const CartBadge = styled.span.withConfig({shouldForwardProp: (prop) => pr
   // min-height: ${({ isMobile }) => (isMobile ? "20px" : "20px")};
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
   z-index: 10;
- 
 `;
 export const CartSummary = styled.div`
   position: absolute;
@@ -182,8 +189,9 @@ export const CheckoutButton = styled(Link)`
   font-weight: bold;
 `;
 
-
-export const CartDropdown = styled.div.withConfig({shouldForwardProp: (prop) => prop !== "isMobile"})`
+export const CartDropdown = styled.div.withConfig({
+  shouldForwardProp: (prop) => prop !== "isMobile",
+})`
   position: absolute;
   top: 60px;
   right: ${({ isMobile }) => (isMobile ? "-50px" : "0")};
@@ -268,7 +276,7 @@ export const QuantityWrapper = styled.div`
   display: flex;
   align-items: center;
   gap: 10px;
-  
+
   button {
     background: ${({ theme }) => theme.colors.primary};
     color: white;
@@ -278,7 +286,7 @@ export const QuantityWrapper = styled.div`
     font-size: 14px;
     cursor: pointer;
     transition: background 0.3s ease;
-    
+
     &:hover {
       background: ${({ theme }) => theme.colors.secondary};
     }
@@ -289,7 +297,6 @@ export const QuantityWrapper = styled.div`
     font-weight: bold;
   }
 `;
-
 
 export const ThemeToggle = styled.button`
   background: none;
@@ -304,9 +311,9 @@ export const ThemeToggle = styled.button`
   justify-content: center;
 
   &:hover {
-    color: ${({ theme }) => theme.colors.primary}; 
+    color: ${({ theme }) => theme.colors.primary};
     font-weight: bold;
-    transform: scale(1.1); 
+    transform: scale(1.1);
   }
 
   &:focus {
@@ -315,11 +322,11 @@ export const ThemeToggle = styled.button`
   }
 `;
 export const ToggleSwitch = styled.div.withConfig({
-  shouldForwardProp: (prop) => prop !== "isDark"})`
-
+  shouldForwardProp: (prop) => prop !== "isDark",
+})`
   width: 40px;
   height: 20px;
-  background-color: ${({ isDark, theme }) => 
+  background-color: ${({ isDark, theme }) =>
     isDark ? theme.colors.primary : "#ccc"};
   border-radius: 20px;
   position: relative;
@@ -329,8 +336,9 @@ export const ToggleSwitch = styled.div.withConfig({
   transition: background-color 0.3s;
 `;
 
-
-export const ToggleSlider = styled.div.withConfig({shouldForwardProp: (prop) => prop !== "isDark"})`
+export const ToggleSlider = styled.div.withConfig({
+  shouldForwardProp: (prop) => prop !== "isDark",
+})`
   height: 18px;
   width: 18px;
   background-color: ${({ theme }) => theme.colors.card};
@@ -350,18 +358,16 @@ export const MobileNav = styled.div`
   box-shadow: ${({ theme }) =>
     theme.colors.background === "#121212"
       ? "0 -4px 10px rgba(255, 255, 255, 0.1)"
-      : "0 -4px 6px rgba(0, 0, 0, 0.1)"}; 
+      : "0 -4px 6px rgba(0, 0, 0, 0.1)"};
   padding: 10px 0;
   display: flex;
   justify-content: space-around;
   align-items: center;
   height: 60px;
   z-index: 1001;
- 
+
   &:hover {
-    color: ${({ theme }) => theme.colors.primary}; 
+    color: ${({ theme }) => theme.colors.primary};
     transform: scale(1.1);
   }
-  
-
 `;

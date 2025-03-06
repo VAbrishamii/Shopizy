@@ -30,9 +30,12 @@ export const GlobalStyles = createGlobalStyle`
     min-height: 100vh; 
   }
 
+
   .content {
     flex: 1; 
-    padding-bottom: 120px;
+   padding-top: 130px;
+   padding-bottom: 50px;
+    
   }
   
 

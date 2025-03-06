@@ -1,9 +1,7 @@
 import PriceDisplay from "./PriceDisplay";
 import useCartStore from "../store/useCartStore";
-import {  useRef } from "react";
 import RatingStars from "./RatingStars";
 import WishList from "./WishList";
-import FlyToCart from "./FlyToCart";
 import {
   CardContainer,
   ProductImage,
@@ -25,43 +23,36 @@ const ProductCard = ({ product, cartIconRef }) => {
   const addToCart = useCartStore((state) => state.addToCart);
   const cart = useCartStore((state) => state.cart) || [];
   const isInCart = cart.some((item) => item.id === product.id);
- 
 
-  const triggerRef = useRef(null); 
-  const flyToCartRef = useRef(null);
 
-  const handelAddToCart = async (e) => {
-    if (!cartIconRef?.current) {
+
+  const handleAddToCart = async (e) => {
+    if (!cartIconRef?.current ) {
       console.error("cartIconRef is null");
       return;
     }
-
-    flyToCartRef.current.startAnimation();
-
-    setTimeout(() => {
-      console.log("Adding product to cart...");
-      addToCart(product);
-    }, 1500);
+    addToCart(product);
   };
-
-    
 
   return (
     <>
       <CardContainer>
-        <AddToCartIcon  ref={triggerRef} onClick={handelAddToCart} isInCart={isInCart} aria-label={isInCart ? "Remove from cart" : "Add to cart"}>
-          <ShoppingBagIconStyled  />
+        <AddToCartIcon
+        
+          onClick={handleAddToCart}
+          isInCart={isInCart}
+          aria-label={isInCart ? "Remove from cart" : "Add to cart"}>
+          <ShoppingBagIconStyled />
         </AddToCartIcon>
 
         <ProductImageWrapper>
           <WishList product={product} />
-          
+
           <ProductImage
             src={product.image.url}
             alt={`${product.image.alt}`}
             loading="lazy"
           />
-         
         </ProductImageWrapper>
         <ProductInfo>
           <ProductTitle>{product.title}</ProductTitle>
@@ -73,12 +64,10 @@ const ProductCard = ({ product, cartIconRef }) => {
           <RatingStars rating={product.rating} />
           <ProductPageLink to={`/product/${product.id}`}>More</ProductPageLink>
         </ProductInfo>
-
-        {/* Floating Image Animation */}
-        <FlyToCart ref={flyToCartRef} triggerRef={triggerRef} targetRef={cartIconRef} imageSrc={product.image.url} />
       </CardContainer>
     </>
   );
 };
 
 export default ProductCard;
+
