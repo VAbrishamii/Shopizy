@@ -8,9 +8,8 @@ export const StarsContainer = styled.div`
 `;
 
 export const StarIcon = styled(Star).attrs(({ $filled }) => ({
-    // ✅ Ensuring color and background color are correctly applied
     style: { 
-      color: $filled ? "#FFD700" : "#B3B3B3",  // Gold if filled, gray if not
+      color: $filled ? "#FFD700" : "#B3B3B3", 
       fill: $filled ? "#FFD700" : "transparent",
      
     },

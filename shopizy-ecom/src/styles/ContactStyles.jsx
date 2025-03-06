@@ -19,6 +19,7 @@ export const Form = styled.form`
 
 export const Input = styled.input`
   padding: 10px;
+  width: 100%;
   border: 1px solid ${({ theme }) => theme.colors.textSecondary};
   border-radius: 4px;
   font-size: 16px;
@@ -33,6 +34,7 @@ export const Input = styled.input`
 
 export const TextArea = styled.textarea`
   height: 100px;
+  width: 100%;
   padding: 10px;
   border: 1px solid ${({ theme }) => theme.colors.textSecondary};
   border-radius: 4px;
@@ -49,6 +51,7 @@ export const TextArea = styled.textarea`
 export const Button = styled.button`
   background: ${({ theme }) => theme.colors.primary};
   color: white;
+  width: 100%;
   padding: 10px;
   border: none;
   border-radius: 4px;

@@ -85,28 +85,20 @@ export const ShoppingBagIconStyled = styled(ShoppingBagIcon)`
 
 export const ProductImageWrapper = styled.div`
   width: 100%;
-  aspect-ratio: 4 / 3;  /* Ensures consistent aspect ratio */
-  // height: 200px;
+  aspect-ratio: 4 / 3; 
   display: flex;
   align-items: center;
   justify-content: center;
   overflow: hidden;
-
-  background-color: ${({ theme }) => theme.colors.background}; /* Adds a fallback background */
+  background-color: ${({ theme }) => theme.colors.background}; 
 `;
 
 export const ProductImage = styled.img`
   width: 100%;
   height: 100%;
-  // object-fit: cover;
   object-fit: contain; /* Keeps the full image visible without cropping */
-  //   @media (min-aspect-ratio: 1/1) {
-  //   object-position: center center; /* Center images that are wider */
-  // }
+  transition: transform 0.3s;
 
-  // @media (max-aspect-ratio: 1/1) {
-  //   object-position: top center; /* Show top area for taller images */
-  // }
    @media (min-width: 768px) {
     object-fit: cover; /* Adjust for larger screens */
   }
@@ -114,8 +106,7 @@ export const ProductImage = styled.img`
   &:hover {
     transform: scale(1.05);
   }
- 
-  transition: transform 0.3s;
+
 `;
 export const ProductInfo = styled.div`
   padding: 10px;
@@ -173,5 +164,5 @@ export const FloatingImage = styled.img.attrs(({ startX, startY, endX, endY }) =
     transform 0.8s cubic-bezier(0.4, 0, 0.2, 1),
     opacity 0.6s ease-in-out;
 
-  ${({ $visible }) => !$visible && "opacity: 0;"} /* ✅ Only apply opacity via CSS */
+  ${({ $visible }) => !$visible && "opacity: 0;"} 
 `;

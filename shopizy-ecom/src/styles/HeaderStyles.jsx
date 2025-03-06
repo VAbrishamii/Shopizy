@@ -82,10 +82,6 @@ export const CartBadge = styled.span.withConfig({
   top: 6px;
   right: 2px;
   transform: translate(50%, -50%);
-  // top: ${({ isMobile = false, isTablet = false }) =>
-    isMobile ? "10px" : isTablet ? "-1px" : "-1px"};
-  // right: ${({ isMobile = false, isTablet = false }) =>
-    isMobile ? "267px" : isTablet ? "-6px" : "-6px"};
   color: white;
   background-color: ${({ theme }) => theme.colors.error};
   font-size: 12px;
@@ -97,8 +93,6 @@ export const CartBadge = styled.span.withConfig({
   align-items: center;
   min-width: 20px;
   min-height: 20px;
-  // min-width: ${({ isMobile }) => (isMobile ? "20px" : "20px")};
-  // min-height: ${({ isMobile }) => (isMobile ? "20px" : "20px")};
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
   z-index: 10;
 `;
@@ -256,22 +250,7 @@ export const CartActions = styled.div`
     }
   }
 `;
-// export const CheckoutButton = styled.button`
-//   width: 100%;
-//   padding: 10px;
-//   background: ${({ theme }) => theme.colors.primary};
-//   color: white;
-//   font-size: 14px;
-//   font-weight: bold;
-//   border: none;
-//   border-radius: 5px;
-//   cursor: pointer;
-//   transition: background 0.3s ease;
 
-//   &:hover {
-//     background: ${({ theme }) => theme.colors.secondary};
-//   }
-// `;
 export const QuantityWrapper = styled.div`
   display: flex;
   align-items: center;

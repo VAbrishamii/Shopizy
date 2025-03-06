@@ -26,7 +26,7 @@ export const DiscounteBadge = styled.span`
   font-size: 0.8rem;
   border-radius: 50%;
   font-weight: bold;
-  // background-color: ${({ theme }) => theme.colors.success};
+
 `;
 
 export default PriceContainer;
