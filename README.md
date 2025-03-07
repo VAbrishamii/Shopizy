@@ -4,13 +4,13 @@ A modern and responsive eCommerce website built using React, Vite, React Router,
 
 ---
 
-## Table of Contents
+## 📜 Table of Contents
 - [Installation](#installation)
 - [Features](#features)
 - [Technologies Used](#tech-stack)
 - [Demo](#demo)
 
-## Installation 
+## 🚀 Installation 
 
 Follow these steps to set up the project locally on your machine:
 
@@ -25,7 +25,7 @@ Follow these steps to set up the project locally on your machine:
 2. Open http://localhost:3000 in your browser to see the application in action.   
 
 
-## Features
+## ✨ Features
 
 - **Product Listing** - Fetch and display products from the Noroff API.
 - **Product Details Page** - View detailed information about each product.
@@ -51,6 +51,6 @@ Follow these steps to set up the project locally on your machine:
 - **API:** Noroff Online Shop API
 
 
-## Demo
+## 🌐 Demo
 
 https://shopziy-ecom.netlify.app/
