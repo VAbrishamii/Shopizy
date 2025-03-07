@@ -1,6 +1,7 @@
 # 🛍️ Shopizy - React E-Commerce Website
 
 A modern and responsive eCommerce website built using React, Vite, React Router, Styled Components, Zustand, and React Query. The app allows users to browse products, add items to their cart, and complete the checkout process. As well as test for WCAG 2.1 by Wavw and aXe DevTools.
+
 ---
 
 ## Table of Contents
@@ -11,6 +12,8 @@ A modern and responsive eCommerce website built using React, Vite, React Router,
 
 ## Instalation 
  Follow these steps to set up the project locally on your machine:
+
+
  1. **Clone the repository**:
    ```bash
    git clone https://github.com/VAbrishamii/Shopziy.git
@@ -19,6 +22,8 @@ A modern and responsive eCommerce website built using React, Vite, React Router,
    npm start
 
 Open http://localhost:3000 in your browser to see the application in action.   
+
+
 
 
 ## 🚀 Features
