@@ -12,22 +12,23 @@ A modern and responsive eCommerce website built using React, Vite, React Router,
 
 ## Installation 
 
- Follow these steps to set up the project locally on your machine:
+Follow these steps to set up the project locally on your machine:
 
 
- 1. **Clone the repository**:
-   ```bash
-   git clone https://github.com/VAbrishamii/Shopziy.git
-   cd shopizy-ecom
-   npm install
-   npm start
-
- 2. Open http://localhost:3000 in your browser to see the application in action.   
+1. **Clone the repository**:
+  ```bash
+ git clone https://github.com/VAbrishamii/Shopizy.git
+ cd shopizy-ecom
+ npm install
+ npm start
 
 
- ## Features
+2. Open http://localhost:3000 in your browser to see the application in action.   
 
- - **Product Listing** - Fetch and display products from the Noroff API.
+
+## Features
+
+- **Product Listing** - Fetch and display products from the Noroff API.
  - **Product Details Page** - View detailed information about each product.
  - **Search Functionality** - A search bar to filter products by name.
  - **Shopping Cart** - Add & remove items from the cart with real-time updates.  
@@ -40,7 +41,7 @@ A modern and responsive eCommerce website built using React, Vite, React Router,
 
  ---
 
- ## 🛠️ Tech Stack
+## 🛠️ Tech Stack
 
  - **Frontend:** React (Vite), React Router  
  - **State Management:** Zustand for cartstore, theme and wishlist.
@@ -52,6 +53,6 @@ A modern and responsive eCommerce website built using React, Vite, React Router,
  - **API:** Noroff Online Shop API
 
  ---
- ## Demo
+## Demo
 
  https://shopziy-ecom.netlify.app/
