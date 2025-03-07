@@ -8,7 +8,6 @@ import {
   WishlistList,
   WishlistItem,
   WishlistImage,
-  WishlistInfo,
   WishlistActions,
   EmptyMessage,
 } from "../styles/WishListstyles";
