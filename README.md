@@ -27,7 +27,7 @@ Open http://localhost:3000 in your browser to see the application in action.
 
 
 
-## 🚀 Features
+## Features
 
 - **Product Listing** - Fetch and display products from the Noroff API.
 - **Product Details Page** - View detailed information about each product.
