@@ -17,9 +17,6 @@ const HomePage = () => {
   const cart = useCartstore((state) => state.cart) || [];
   console.log('cart in HomePage:', cart);
 
-  
-
- 
 
   if (isLoading) return <p>Loading...</p>;
   if (isError) return <p>Something went wrong</p>;
