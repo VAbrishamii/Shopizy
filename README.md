@@ -11,6 +11,7 @@ A modern and responsive eCommerce website built using React, Vite, React Router,
 - [Link](#link)
 
 ## Instalation 
+
  Follow these steps to set up the project locally on your machine:
 
 
@@ -27,20 +28,22 @@ Open http://localhost:3000 in your browser to see the application in action.
 
 
 ## 🚀 Features
-✔ **Product Listing** - Fetch and display products from the Noroff API.
-✔ **Product Details Page** - View detailed information about each product.
-✔ **Search Functionality** - A search bar to filter products by name.
-✔ **Shopping Cart** - Add & remove items from the cart with real-time updates.  
-✔ **CheckOut Success Pgae** - Confirmation page after a successful purchase.
-✔ **Dark Mode Toggle** - Supports light and dark mode using a theme switcher.  
-✔ **Fully Responsive** - Works on mobile, tablet, and desktop screens.  
-✔ **Styled Components** - Modern design with Styled Components for consistent theming.  
-✔ **Performance Optimized** - Tested with Lighthouse for best practice and accessibility.  
-✔ **Dynamic Page Layout** - Auto-centering content on larger screens. 
+
+- **Product Listing** - Fetch and display products from the Noroff API.
+- **Product Details Page** - View detailed information about each product.
+- **Search Functionality** - A search bar to filter products by name.
+- **Shopping Cart** - Add & remove items from the cart with real-time updates.  
+- **CheckOut Success Pgae** - Confirmation page after a successful purchase.
+- **Dark Mode Toggle** - Supports light and dark mode using a theme switcher.  
+- **Fully Responsive** - Works on mobile, tablet, and desktop screens.  
+- **Styled Components** - Modern design with Styled Components for consistent theming.  
+- **Performance Optimized** - Tested with Lighthouse for best practice and accessibility.  
+- **Dynamic Page Layout** - Auto-centering content on larger screens. 
 
 ---
 
 ## 🛠️ Tech Stack
+
 - **Frontend:** React (Vite), React Router  
 - **State Management:** Zustand for cartstore, theme and wishlist.
 - **Styling:** Styled Components, CSS Grid  
