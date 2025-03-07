@@ -30,7 +30,7 @@ export const WishListContainerwrappper = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  width: 80%;
+  width: 100%;
   margin: 20px auto;
   padding: 20px;
  
@@ -62,35 +62,13 @@ export const WishlistImage = styled.img`
   cursor: pointer;
   padding: 10px;
   flex-shrink: 0;
-`;
-
-export const WishlistInfo = styled.div`
-  flex: 1;
-  margin-top: 10px;
-  display: flex;
-  flex-direction: column;
-  align-items: left;
-  justify-content: center;
-  gap: 10px;
-  padding-left: 10px;
-
-  h1{
-    font-size: 18px;
-    color: ${({ theme }) => theme.colors.textPrimary};
-  }
-  p {
-    font-size: 16px;
-    width: 100%;
-    color: ${({ theme }) => theme.colors.textPrimary};
-  }
-  strong {
-    color: ${({ theme }) => theme.colors.primary};
-    font-size: 18px;
-    disply: flex;
-    flex-direction: column;
-    align-items: center;
+  @media (max-width: 768px) {
+    width: 100px;
+    height: 100px;
   }
 `;
+
+// 
 
 export const WishlistActions = styled.div`
   display: flex;

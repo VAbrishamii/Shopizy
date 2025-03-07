@@ -14,6 +14,7 @@ import {
 } from "../styles/WishListstyles";
 import { ProductDescription, ProductTitle } from "../styles/CardStyles";
 import PriceDisplay from "../components/PriceDisplay";
+import { CartDetails } from "../styles/CartStyles";
 
 const WishlistPage = () => {
   const { wishlist, removeFromWishlist } = useWishlistStore();
@@ -38,15 +39,14 @@ const WishlistPage = () => {
                 <WishlistImage src={product.image.url} alt={product.title} />
               </Link>
 
-              <WishlistInfo>
-
+<CartDetails>
                 <ProductTitle>{product.title}</ProductTitle>
                 <ProductDescription>{product.description}</ProductDescription>
                 <PriceDisplay
                   price={product.price}
                   discountedPrice={product.discountedPrice}
                 />
-              </WishlistInfo>
+              </CartDetails>
 
               <WishlistActions>
                 {/* Move to Cart Button */}
