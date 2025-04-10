@@ -67,8 +67,8 @@ const CheckoutPage = () => {
                   onChange={handleChange}
                   required
                 />
-                </FormGroup>
-                <FormGroup>
+              </FormGroup>
+              <FormGroup>
                 <Label htmlFor="address">Adress</Label>
                 <Input
                   id="address"
@@ -79,8 +79,8 @@ const CheckoutPage = () => {
                   onChange={handleChange}
                   required
                 />
-                </FormGroup>
-                <FormGroup>
+              </FormGroup>
+              <FormGroup>
                 <Label htmlFor="city">City</Label>
                 <Input
                   id="city"
@@ -91,8 +91,8 @@ const CheckoutPage = () => {
                   onChange={handleChange}
                   required
                 />
-                </FormGroup>
-                <FormGroup>
+              </FormGroup>
+              <FormGroup>
                 <Label htmlFor="country">Country</Label>
                 <Input
                   id="country"
@@ -104,21 +104,20 @@ const CheckoutPage = () => {
                   required
                 />
               </FormGroup>
-             
+
               <FormGroup>
-              <h3>Payment Method</h3>
-              <Select
-                name="paymentMethod"
-                value={formData.paymentMethod}
-                onChange={handleChange}
-              >
-                <option value="credit-card">Credit Card</option>
-                <option value="paypal">PayPal</option>
-                <option value="bank-transfer">Bank Transfer</option>
-              </Select>
+                <h3>Payment Method</h3>
+                <Select
+                  name="paymentMethod"
+                  value={formData.paymentMethod}
+                  onChange={handleChange}>
+                  <option value="credit-card">Credit Card</option>
+                  <option value="paypal">PayPal</option>
+                  <option value="bank-transfer">Bank Transfer</option>
+                </Select>
               </FormGroup>
               <FormGroup>
-              <PayButton onClick={handlePayment}>Pay Now</PayButton>
+                <PayButton onClick={handlePayment}>Pay Now</PayButton>
               </FormGroup>
             </FormContainer>
           </CheckoutContent>

@@ -56,7 +56,8 @@ const SearchBar = () => {
   return (
     <SearchContainer ref={searchRef}>
       <label htmlFor="search-input" className="visually-hidden">
-      search</label>
+        search
+      </label>
       <SearchInput
         id="search-input"
         type="text"

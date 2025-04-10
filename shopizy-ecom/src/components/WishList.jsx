@@ -3,18 +3,21 @@ import { WishListContainer } from "../styles/WishListstyles";
 import useWishlistStore from "../store/useWishlistStore";
 
 const WishList = ({ product }) => {
-    const { wishlist, addToWishlist, removeFromWishlist } = useWishlistStore();
-    const isWishListed = wishlist.some((item) => item.id === product.id);
-  
-    const handleWishList = () => {
-      if (isWishListed) {
-        removeFromWishlist(product.id);
-      } else {
-        addToWishlist(product);
-      }
-    };
+  const { wishlist, addToWishlist, removeFromWishlist } = useWishlistStore();
+  const isWishListed = wishlist.some((item) => item.id === product.id);
+
+  const handleWishList = () => {
+    if (isWishListed) {
+      removeFromWishlist(product.id);
+    } else {
+      addToWishlist(product);
+    }
+  };
   return (
-    <WishListContainer $isActive={isWishListed} onClick={handleWishList} aria-label={isWishListed ? "Remove from wishlist" : "Add to wishlist"}>
+    <WishListContainer
+      $isActive={isWishListed}
+      onClick={handleWishList}
+      aria-label={isWishListed ? "Remove from wishlist" : "Add to wishlist"}>
       <Heart
         size={18}
         onClick={handleWishList}

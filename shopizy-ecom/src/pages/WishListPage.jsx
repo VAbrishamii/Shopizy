@@ -19,7 +19,7 @@ const WishlistPage = () => {
   const { wishlist, removeFromWishlist } = useWishlistStore();
   const { addToCart } = useCartStore();
 
-  // ✅ Move item from Wishlist to Cart
+  // Move item from Wishlist to Cart
   const handleMoveToCart = (product) => {
     addToCart({ ...product, quantity: 1 }); // Add to cart
     removeFromWishlist(product.id); // Remove from wishlist
@@ -38,7 +38,7 @@ const WishlistPage = () => {
                 <WishlistImage src={product.image.url} alt={product.title} />
               </Link>
 
-<CartDetails>
+              <CartDetails>
                 <ProductTitle>{product.title}</ProductTitle>
                 <ProductDescription>{product.description}</ProductDescription>
                 <PriceDisplay
@@ -49,12 +49,16 @@ const WishlistPage = () => {
 
               <WishlistActions>
                 {/* Move to Cart Button */}
-                <button onClick={() => handleMoveToCart(product)} aria-label="Move to Cart">
+                <button
+                  onClick={() => handleMoveToCart(product)}
+                  aria-label="Move to Cart">
                   <ShoppingBagIcon />
                 </button>
 
                 {/* Remove from Wishlist Button */}
-                <button onClick={() => removeFromWishlist(product.id)} aria-label="Remove from Wishlist">
+                <button
+                  onClick={() => removeFromWishlist(product.id)}
+                  aria-label="Remove from Wishlist">
                   <Trash2 size={18} color="red" />
                 </button>
               </WishlistActions>

@@ -4,19 +4,14 @@ import { useProducts } from "../hooks/useProducts";
 import ProductCard from "../components/ProductCard";
 import { ProductListContainer } from "../styles/CardStyles";
 import { useOutletContext } from "react-router-dom";
-import useCartstore  from "../store/useCartStore";  
-
-
+import useCartstore from "../store/useCartStore";
 
 const HomePage = () => {
-  const outletContext = useOutletContext() || {}; 
+  const outletContext = useOutletContext() || {};
   const cartIconRef = outletContext.cartIconRef;
-  console.log('cartIconRef in HomePage:', cartIconRef);
 
   const { data: products, isLoading, isError } = useProducts();
   const cart = useCartstore((state) => state.cart) || [];
-  console.log('cart in HomePage:', cart);
-
 
   if (isLoading) return <p>Loading...</p>;
   if (isError) return <p>Something went wrong</p>;
@@ -24,13 +19,16 @@ const HomePage = () => {
   return (
     <>
       <SearchBar />
-    
+
       <ProductListContainer>
-      {products.data.map((product) => (
-        <ProductCard key={product.id} product={product}  cartIconRef={cartIconRef}/>
-      ))}
-    </ProductListContainer>
-      
+        {products.data.map((product) => (
+          <ProductCard
+            key={product.id}
+            product={product}
+            cartIconRef={cartIconRef}
+          />
+        ))}
+      </ProductListContainer>
     </>
   );
 };

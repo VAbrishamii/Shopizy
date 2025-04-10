@@ -1,4 +1,3 @@
-
 import PriceDisplay from "../components/PriceDisplay";
 import useCartStore from "../store/useCartStore";
 import {
@@ -15,7 +14,6 @@ import { Minus, Plus, Trash2 } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import { ProductDescription, ProductTitle } from "../styles/CardStyles";
 
-
 const CartPage = () => {
   const { cart, updateQuantity, removeFromCart, getTotalPrice, clearCart } =
     useCartStore();
@@ -30,9 +28,8 @@ const CartPage = () => {
       return;
     }
     navigate("/checkout", { state: { cart } });
-    clearCart();    
-};
-
+    clearCart();
+  };
 
   return (
     <CartContainer>
@@ -46,21 +43,30 @@ const CartPage = () => {
             <CartDetails>
               <ProductTitle>{item.title}</ProductTitle>
               <ProductDescription>{item.description}</ProductDescription>
-              <PriceDisplay price={item.price} discountedPrice={item.discountedPrice} />
+              <PriceDisplay
+                price={item.price}
+                discountedPrice={item.discountedPrice}
+              />
               {/* ✅ Prevent errors */}
             </CartDetails>
             <CartActions>
               <QuantityWrapeper>
-                <button onClick={() => updateQuantity(item.id, -1)} aria-label="Decrease quantity">
+                <button
+                  onClick={() => updateQuantity(item.id, -1)}
+                  aria-label="Decrease quantity">
                   <Minus sizze={18} />
                 </button>
                 <span>{item.quantity}</span>
-                <button onClick={() => updateQuantity(item.id, +1)} aria-label="Increase quantity">
+                <button
+                  onClick={() => updateQuantity(item.id, +1)}
+                  aria-label="Increase quantity">
                   <Plus size={18} />
                 </button>
               </QuantityWrapeper>
 
-              <RemoveButton onClick={() => removeFromCart(item.id)} aria-label="Remove item">
+              <RemoveButton
+                onClick={() => removeFromCart(item.id)}
+                aria-label="Remove item">
                 <Trash2 size={18} />
               </RemoveButton>
             </CartActions>

@@ -22,7 +22,6 @@ const ContactForm = () => {
   const onSubmit = (data) => {
     setShowPopup(true);
     reset();
-    console.log(data);
 
     setTimeout(() => {
       setShowPopup(false);
@@ -93,7 +92,7 @@ const ContactForm = () => {
           {errors.body && <ErrorText>{errors.body.message}</ErrorText>}
         </FormGroup>
         <FormGroup>
-        <Button type="submit">Send Message</Button>
+          <Button type="submit">Send Message</Button>
         </FormGroup>
       </Form>
     </>

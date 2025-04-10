@@ -15,30 +15,38 @@ import {
 } from "../styles/CardStyles";
 
 const ProductCard = ({ product, cartIconRef }) => {
-  if (!product) {
-    console.error("ProductCard: ", product);
-    return null;
-  }
-
   const addToCart = useCartStore((state) => state.addToCart);
   const cart = useCartStore((state) => state.cart) || [];
-  const isInCart = cart.some((item) => item.id === product.id);
+  const isInCart = cart.some((item) => item.id === product?.id);
 
-
-
-  const handleAddToCart = async (e) => {
-    if (!cartIconRef?.current ) {
-      console.error("cartIconRef is null");
+  const handleAddToCart = () => {
+    if (!product) {
+      console.error("ProductCard Error: Product data is missing.");
       return;
     }
+
+    if (!cartIconRef?.current) {
+      console.error("ProductCard Error: cartIconRef is missing.");
+      return;
+    }
+
+    if (isInCart) {
+      console.info(`"${product.title}" is already in your cart.`);
+      return;
+    }
+
     addToCart(product);
   };
+
+  if (!product) {
+    console.error("ProductCard Error: No product provided.");
+    return null;
+  }
 
   return (
     <>
       <CardContainer>
         <AddToCartIcon
-        
           onClick={handleAddToCart}
           isInCart={isInCart}
           aria-label={isInCart ? "Remove from cart" : "Add to cart"}>
@@ -70,4 +78,3 @@ const ProductCard = ({ product, cartIconRef }) => {
 };
 
 export default ProductCard;
-

@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { Home, Headset, Heart } from "lucide-react";
 import { ShoppingBagIcon } from "@heroicons/react/24/outline";
 import { Link } from "react-router-dom";
@@ -31,8 +30,6 @@ const Header = ({ cartIconRef }) => {
 
   const totalItems = cart.reduce((total, item) => total + item.quantity, 0);
   const wishlistCount = wishlist.length;
-
-  // const cartIconRef = useRef(null);
 
   return (
     <HeaderContainer>
