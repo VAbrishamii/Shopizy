@@ -12,6 +12,7 @@ export const FooterContainer = styled.footer`
   width: 100%;
   height: 50px;
   z-index: 500;
+  margin-top: auto;
 
 
 `;
