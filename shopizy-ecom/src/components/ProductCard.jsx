@@ -2,6 +2,7 @@ import PriceDisplay from "./PriceDisplay";
 import useCartStore from "../store/useCartStore";
 import RatingStars from "./RatingStars";
 import WishList from "./WishList";
+
 import {
   CardContainer,
   ProductImage,

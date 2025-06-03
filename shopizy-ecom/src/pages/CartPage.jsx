@@ -37,8 +37,8 @@ const CartPage = () => {
       {cart.length === 0 ? (
         <p>Your cart is empty.</p>
       ) : (
-        cart.map((item, index) => (
-          <CartItem key={`${item.id}-${index}`}>
+        cart.map((item) => (
+          <CartItem key={item.id}>
             <img src={item.image?.url} alt={item.title} />
             <CartDetails>
               <ProductTitle>{item.title}</ProductTitle>

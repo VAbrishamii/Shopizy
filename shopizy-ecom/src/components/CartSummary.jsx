@@ -22,7 +22,7 @@ const CartSummary = () => {
       alert("Your cart is empty!");
       return;
     }
-    navigate("/checkout", { state: { cart } }); // ✅ Pass cart data
+    navigate("/checkout", { state: { cart } }); //  Pass cart data
   };
 
   return (
