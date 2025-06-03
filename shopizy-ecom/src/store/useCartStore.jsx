@@ -1,5 +1,10 @@
 import { create } from "zustand";
-
+/**
+ * Custom hook for managing the shopping cart state.
+ * It provides functions to add, update, remove items from the cart,
+ * clear the cart, and check if a product is in the cart.
+ * The cart state is persisted in localStorage for session persistence.
+ */
 const useCartStore = create((set) => ({
   cart: JSON.parse(localStorage.getItem("cart")) || [],
   addToCart: (product) =>

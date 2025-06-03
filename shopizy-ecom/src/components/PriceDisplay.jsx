@@ -6,7 +6,12 @@ import {
   DiscountedPrice,
   DiscounteBadge,
 } from "../styles/PriceStyles";
-
+/**
+ *
+ * PriceDisplay component for displaying product prices with optional discounts.
+ * @param {Object} props - Component properties.
+ * @param {number} props.price - The original price of the product.
+ */
 const PriceDisplay = ({ price, discountedPrice }) => {
   const hasDiscount = discountedPrice && discountedPrice < price;
 

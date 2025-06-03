@@ -7,7 +7,12 @@ import {
   NoReviews,
 } from "../styles/ReviewStyles";
 import RatingStars from "./RatingStars";
-
+/**
+ *
+ * ProductReview component for displaying customer reviews of a product.
+ * @param {Object} props - Component properties.
+ * @param {Array} props.reviews - Array of review objects containing review details.
+ */
 const ProductReview = ({ reviews }) => {
   return (
     <ReviewContainer>

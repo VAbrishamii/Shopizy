@@ -14,6 +14,12 @@ import {
   ProductPageLink,
   ShoppingBagIconStyled,
 } from "../styles/CardStyles";
+/**
+ *
+ * ProductCard component for displaying product details and adding to cart functionality.
+ * @param {Object} props - Component properties.
+ * @param {Object} props.product - The product data to display.
+ */
 
 const ProductCard = ({ product, cartIconRef }) => {
   const addToCart = useCartStore((state) => state.addToCart);

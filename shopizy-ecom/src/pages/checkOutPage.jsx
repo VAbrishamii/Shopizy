@@ -17,7 +17,12 @@ import {
 import { useEffect, useState } from "react";
 import { useLocation, Link } from "react-router-dom";
 import useCartStore from "../store/useCartStore";
-
+/**
+ * @returns CheckoutPage component that handles the checkout process for a shopping cart.
+ * It allows users to enter shipping details, select a payment method, and confirm their payment.
+ * Once the payment is successful, it displays a confirmation message with a reference number
+ * and lists the purchased items.
+ */
 const CheckoutPage = () => {
   const location = useLocation();
   const cart = location.state?.cart || [];

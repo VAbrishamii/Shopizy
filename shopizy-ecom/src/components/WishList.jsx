@@ -1,7 +1,11 @@
 import { Heart } from "lucide-react";
 import { WishListContainer } from "../styles/WishListstyles";
 import useWishlistStore from "../store/useWishlistStore";
-
+/**
+ * WishList component that allows users to add or remove products from their wishlist.
+ * It uses a custom store to manage the wishlist state and provides visual feedback
+ * on whether a product is in the wishlist or not.
+ */
 const WishList = ({ product }) => {
   const { wishlist, addToWishlist, removeFromWishlist } = useWishlistStore();
   const isWishListed = wishlist.some((item) => item.id === product.id);

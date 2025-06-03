@@ -13,7 +13,13 @@ import {
 import { Minus, Plus, Trash2 } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import { ProductDescription, ProductTitle } from "../styles/CardStyles";
-
+/**
+ *
+ * @returns CartPage component that displays the shopping cart items, allows quantity updates, item removal, and checkout functionality.
+ * It uses a custom cart store for state management and styled-components for styling.
+ * The component calculates the subtotal, shipping, and total prices, and displays them in a summary section.
+ * If the cart is empty, it shows a message indicating that the cart is empty.
+ */
 const CartPage = () => {
   const { cart, updateQuantity, removeFromCart, getTotalPrice, clearCart } =
     useCartStore();

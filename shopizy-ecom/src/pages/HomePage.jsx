@@ -5,7 +5,11 @@ import ProductCard from "../components/ProductCard";
 import { ProductListContainer } from "../styles/CardStyles";
 import { useOutletContext } from "react-router-dom";
 import useCartstore from "../store/useCartStore";
-
+/**
+ * @returns HomePage component that displays a list of products fetched from an API.
+ * It includes a search bar for filtering products and uses a custom hook to manage product data.
+ * The component also integrates with a cart store to manage the shopping cart state.
+ */
 const HomePage = () => {
   const outletContext = useOutletContext() || {};
   const cartIconRef = outletContext.cartIconRef;

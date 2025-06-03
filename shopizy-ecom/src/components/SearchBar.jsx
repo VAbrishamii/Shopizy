@@ -9,7 +9,13 @@ import {
   ResultsContainer,
   ResultItem,
 } from "../styles/SearchBarStyles";
-
+/**
+ * SearchBar component that provides a search functionality for products.
+ * @returns SearchBar component that allows users to search for products.
+ * It fetches products from an API, filters them based on the search query,
+ * and displays matching results in a dropdown.
+ * The component uses React hooks for state management and side effects,
+ */
 const SearchBar = () => {
   const [query, setQuery] = useState("");
   const [isOpen, setIsOpen] = useState(false);

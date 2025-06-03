@@ -1,6 +1,11 @@
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
-
+/**
+ * 
+ * @returns useProducts hook that fetches product data from an API.
+ * It uses React Query for data fetching and caching.
+ * The hook returns the product data, loading state, and error state.
+ */
 const fetchProducts = async () => {
   try {
     const { data } = await axios.get("https://v2.api.noroff.dev/online-shop");

@@ -21,6 +21,12 @@ import {
 import CartSummary from "./CartSummary";
 import logo from "../assets/logo.png";
 import { useMediaQuery } from "react-responsive";
+/**
+ * Header component that displays the top navigation bar of the website.
+ * It includes the logo, dark mode toggle, and navigation links for home, contact, cart, and wishlist.
+ * It uses Radix UI for dropdown functionality and Lucide icons for actions.
+ * The component is styled using styled-components and integrates with custom stores for theme, cart, and wishlist management.
+ */
 
 const Header = ({ cartIconRef }) => {
   const { theme, toggleTheme } = useThemeStore();

@@ -9,7 +9,10 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import React, { Suspense } from "react";
 
 const queryClient = new QueryClient();
-
+/**
+ *  Main component that initializes the application.
+ * It sets up the theme provider, global styles, and query client for data fetching.
+ */
 const Main = () => {
   const currentTheme = useThemeStore((state) => state.theme);
   return (

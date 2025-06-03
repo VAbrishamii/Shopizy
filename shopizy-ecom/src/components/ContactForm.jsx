@@ -10,7 +10,12 @@ import {
   PopupMessage,
 } from "../styles/ContactStyles";
 import { FormGroup } from "../styles/checkOutStyle";
-
+/**
+ * ContactForm component for handling user contact requests.
+ * It uses react-hook-form for form handling and validation.
+ * Displays a popup message upon successful submission.
+ * The form includes fields for full name, subject, email, and message body.
+ */
 const ContactForm = () => {
   const {
     register,

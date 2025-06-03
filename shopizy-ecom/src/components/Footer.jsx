@@ -4,7 +4,10 @@ import {
   FooterLinks,
 } from "../styles/FooterStyles";
 import { Link } from "react-router-dom";
-
+/**
+ * Footer component that displays the footer section of the website
+ * It includes copyright information and links to the home and contact pages.
+ */
 const Footer = () => {
   return (
     <FooterContainer>

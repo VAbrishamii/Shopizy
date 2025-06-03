@@ -10,7 +10,11 @@ import {
   ProductWrapper,
 } from "../styles/ProductPageStyle";
 import ProductReview from "../components/Review";
-
+/**
+ *
+ * @returns ProductPage component that displays detailed information about a specific product.
+ * It fetches product data using a custom hook, displays the product image, title, description, price,
+ */
 const ProductPage = () => {
   const { id } = useParams();
   const { data: products, isLoading, isError } = useProducts();

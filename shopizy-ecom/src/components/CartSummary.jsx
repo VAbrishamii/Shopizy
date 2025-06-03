@@ -12,7 +12,12 @@ import { Minus, Plus, Trash2 } from "lucide-react";
 import { Link } from "react-router-dom";
 import useCartStore from "../store/useCartStore";
 import { useNavigate } from "react-router-dom";
+/**
 
+ * CartSummary component that displays the items in the cart, allows quantity updates, item removal, and checkout.
+ * It uses Radix UI for dropdown functionality and Lucide icons for actions.
+ * The component is styled using styled-components and integrates with a custom cart store for state management.
+ */
 const CartSummary = () => {
   const { cart, updateQuantity, removeFromCart } = useCartStore();
 

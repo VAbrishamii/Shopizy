@@ -14,7 +14,13 @@ import {
 import { ProductDescription, ProductTitle } from "../styles/CardStyles";
 import PriceDisplay from "../components/PriceDisplay";
 import { CartDetails } from "../styles/CartStyles";
-
+/**
+ *
+ * @returns WishlistPage component that displays the user's wishlist items.
+ * It allows users to move items from the wishlist to the cart or remove them from the wishlist.
+ * It uses custom hooks for managing wishlist and cart state, and styled-components for styling.
+ * The component renders a list of wishlist items with product details, images, and action buttons.
+ */
 const WishlistPage = () => {
   const { wishlist, removeFromWishlist } = useWishlistStore();
   const { addToCart } = useCartStore();
