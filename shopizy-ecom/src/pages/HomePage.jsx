@@ -5,6 +5,7 @@ import ProductCard from "../components/ProductCard";
 import { ProductListContainer } from "../styles/CardStyles";
 import { useOutletContext } from "react-router-dom";
 import useCartstore from "../store/useCartStore";
+import Loader from "../components/Loader";
 /**
  * @returns HomePage component that displays a list of products fetched from an API.
  * It includes a search bar for filtering products and uses a custom hook to manage product data.
@@ -17,7 +18,7 @@ const HomePage = () => {
   const { data: products, isLoading, isError } = useProducts();
   const cart = useCartstore((state) => state.cart) || [];
 
-  if (isLoading) return <p>Loading...</p>;
+  if (isLoading) return <Loader />;
   if (isError) return <p>Something went wrong</p>;
 
   return (

@@ -9,6 +9,7 @@ import {
   ResultsContainer,
   ResultItem,
 } from "../styles/SearchBarStyles";
+import Loader from "./Loader";
 /**
  * SearchBar component that provides a search functionality for products.
  * @returns SearchBar component that allows users to search for products.
@@ -23,7 +24,7 @@ const SearchBar = () => {
   const { data, isLoading, error } = useProducts();
   const searchRef = useRef(null);
 
-  if (isLoading) return null;
+  if (isLoading) return <Loader />;
   if (error) {
     console.error("Search Error:", error.message);
     return null;

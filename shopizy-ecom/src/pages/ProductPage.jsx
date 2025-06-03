@@ -10,6 +10,7 @@ import {
   ProductWrapper,
 } from "../styles/ProductPageStyle";
 import ProductReview from "../components/Review";
+import Loader from "../components/Loader";
 /**
  *
  * @returns ProductPage component that displays detailed information about a specific product.
@@ -20,7 +21,7 @@ const ProductPage = () => {
   const { data: products, isLoading, isError } = useProducts();
   const addToCart = useCartStore((state) => state.addToCart);
 
-  if (isLoading) return <h2>Loading product...</h2>;
+  if (isLoading) return <Loader />;
   if (isError) return <h2>Failed to load product. Please try again.</h2>;
 
   const product = products.data.find((product) => product.id === id);
