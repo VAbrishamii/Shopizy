@@ -36,7 +36,7 @@ const CheckoutPage = () => {
     if (isPaid) {
       clearCart();
     }
-  }, [isPaid]);
+  }, [isPaid, clearCart]);
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
